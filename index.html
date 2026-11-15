@@ -171,6 +171,22 @@ footer{text-align:center;padding:26px 20px 100px;background:var(--ink);color:var
 .fab button{font:800 15px "Baloo 2",sans-serif;border-radius:99px;border:3px solid var(--bd);background:var(--card);box-shadow:3px 3px 0 var(--sh);color:var(--ink);padding:5px 12px;cursor:pointer}
 @keyframes rn{to{transform:translateY(110vh) rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+#adm{position:fixed;inset:0;z-index:46;display:none;place-items:center;background:rgba(23,18,31,.65);padding:16px}#adm.show{display:grid}
+.ap{background:var(--card);border:4px solid var(--bd);border-radius:28px;box-shadow:10px 10px 0 var(--sh);width:min(100%,560px);max-height:92vh;overflow:auto;padding:22px;animation:pop .35s cubic-bezier(.2,1.5,.4,1)}
+.ah{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}.ah h3{font-size:26px}.ah .btn{padding:4px 16px;font-size:15px}
+.ap .chips{margin-bottom:16px}
+.ap label{display:grid;gap:4px;font-weight:800;font-size:14px;margin-bottom:10px}
+.ap input:not([type=file]),.ap select{width:100%;font:600 16px "Be Vietnam Pro",sans-serif;padding:10px 14px;border:3px solid var(--bd);border-radius:12px;background:var(--bg);color:var(--ink)}
+.ap input[type=file]{font:600 14px "Be Vietnam Pro",sans-serif;width:100%}
+.al{list-style:none;padding:0;display:grid;gap:8px;max-height:230px;overflow:auto;margin-top:14px}
+.al li{display:flex;align-items:center;gap:10px;border:3px solid var(--bd);border-radius:14px;padding:6px 10px;font-weight:700}
+.al li span:nth-child(2){flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.al .btn{padding:2px 12px;font-size:14px;box-shadow:2px 2px 0 var(--sh)}
+.an{font-size:13px;color:var(--mut);font-weight:600;margin-top:14px}
+#mp{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:20;display:flex;align-items:center;gap:6px;padding:5px 8px 5px 14px;border:3px solid var(--bd);border-radius:99px;background:var(--sun);color:var(--on);box-shadow:3px 3px 0 var(--sh);font-weight:800;font-size:14px;max-width:min(58vw,300px)}
+#mp[hidden]{display:none}#mpt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#mp button{flex:none;border:2px solid var(--bd);border-radius:50%;width:30px;height:30px;background:#fff;cursor:pointer;color:var(--on)}
 </style>
 </head>
 <body>
@@ -178,7 +194,7 @@ footer{text-align:center;padding:26px 20px 100px;background:var(--ink);color:var
 <div id="bar"></div><div id="glow" aria-hidden="true"></div>
 <div id="toast" role="status"></div>
 <div id="pre"><span style="font-size:60px;animation:fl .7s ease-in-out infinite">🦄</span><b>Đang gọi pony</b><div><i id="pi"></i></div></div><div id="cur" aria-hidden="true"></div>
-<div class="fab"><button id="score" type="button" aria-label="Số sao đã bắt">⭐ 0</button><button id="snd" type="button" aria-label="Bật tắt âm thanh">🔇</button><button id="theme" type="button" aria-label="Đổi giao diện sáng tối">🌗</button><button id="rain" type="button" aria-label="Mưa pony">🦄</button></div>
+<div class="fab"><button id="score" type="button" aria-label="Số sao đã bắt">⭐ 0</button><button id="snd" type="button" aria-label="Bật tắt âm thanh">🔇</button><button id="theme" type="button" aria-label="Đổi giao diện sáng tối">🌗</button><button id="rain" type="button" aria-label="Mưa pony">🦄</button><button id="gear" type="button" aria-label="Bảng điều khiển">⚙️</button></div>
 <nav class="nv" aria-label="Điều hướng"><a class="brand" href="#top">✦ BOX</a><a href="#about">Giới thiệu</a><a href="#owner">Chủ box</a><a href="#uniform">Đồng phục</a><a href="#members">Thành viên</a><a href="#rules">Luật</a><a href="#maker">Tạo pony</a><a href="#game">Chơi</a><a href="#wheel">Vòng quay</a><a href="#fortune">Bói</a><a href="#wall">Tường</a><a href="#quiz">Trắc nghiệm</a><a class="go" href="#join">Vào box</a></nav>
 
 <header class="hero" id="top">
@@ -348,6 +364,30 @@ footer{text-align:center;padding:26px 20px 100px;background:var(--ink);color:var
 <div class="fnav"><a href="#top">↑ Lên đầu trang</a><a href="#rules">Luật box</a><a href="#members">Thành viên</a><a href="#join">Vào box</a></div>
 <footer>亗§𝓣.𝓴ෆ⋅˚ ୨୧Շгєภ๔เภﻮ‧₊ · làm bằng tình yêu dành cho những chú pony 🌈</footer>
 
+<div id="mp" hidden><span id="mpt">🎵</span><button id="mpp" type="button" aria-label="Phát hoặc dừng">▶</button><button id="mpn" type="button" aria-label="Bài tiếp theo">⏭</button></div>
+<div id="adm" role="dialog" aria-modal="true" aria-label="Bảng điều khiển"><div class="ap">
+ <div class="ah"><h3>⚙️ Bảng điều khiển</h3><button class="btn" id="ax" type="button">Đóng</button></div>
+ <div id="alk"><label>Nhập mã để mở bảng điều khiển<input id="ac" type="password" autocomplete="off"></label><button class="btn main" id="aok" type="button">Mở khóa</button></div>
+ <div id="apn" hidden>
+  <div class="chips"><button class="chip atab" data-t="m" aria-pressed="true" type="button">Thành viên</button><button class="chip atab" data-t="s" aria-pressed="false" type="button">Nhạc</button></div>
+  <div id="atm">
+   <label>Tên thành viên<input id="anm" maxlength="40" autocomplete="off"></label>
+   <label>Vai trò<select id="ak"><option value="m">Thành viên</option><option value="a">Quản trị viên</option><option value="o">Chủ box</option></select></label>
+   <label>Giới thiệu ngắn<input id="ab" maxlength="160" autocomplete="off" placeholder="Không bắt buộc"></label>
+   <button class="btn main" id="aadd" type="button">Thêm thành viên</button>
+   <ul class="al" id="aml"></ul>
+   <button class="btn" id="arst" type="button" style="margin-top:12px">Khôi phục danh sách gốc</button>
+  </div>
+  <div id="ats" hidden>
+   <label>Tên bài hát<input id="tn" maxlength="60" autocomplete="off" placeholder="Không bắt buộc"></label>
+   <label>Chọn tệp nhạc từ thiết bị<input id="tf" type="file" accept="audio/*"></label>
+   <label>Hoặc dán link nhạc (mp3…)<input id="tu" type="url" autocomplete="off" placeholder="https://…"></label>
+   <button class="btn main" id="tadd" type="button">Thêm nhạc</button>
+   <ul class="al" id="atl"></ul>
+  </div>
+  <p class="an">Thay đổi chỉ lưu trên thiết bị và trình duyệt này.</p>
+ </div>
+</div></div>
 <div id="modal" role="dialog" aria-modal="true" aria-labelledby="mn"><div class="sheet" id="sheet"></div></div>
 
 <script>
@@ -366,6 +406,8 @@ const M=[
 {n:"La Ngọc Mỹ Ái",k:"m",t:"Thành viên",h:340,b:"Thành viên mới của gia đình pony, mang thêm nhiều tiếng cười cho box."},
 {n:"DN Linhh",k:"m",t:"Thành viên",h:120,b:"Thành viên mới của gia đình pony, góp thêm một chú pony vui vẻ cho box."},
 {n:"Ngủ Say Mùa Đông",k:"m",t:"Thành viên",h:210,b:"Thành viên có cái tên thật mơ màng, như giấc ngủ giữa mùa đông."}];
+try{const sv0=JSON.parse(localStorage.getItem("pmem")||"null");if(Array.isArray(sv0)&&sv0.length)M.splice(0,M.length,...sv0.map(x=>({n:String(x.n).replace(/[<>&"]/g,""),k:["o","a","m"].includes(x.k)?x.k:"m",t:String(x.t).replace(/[<>&"]/g,""),h:+x.h||0,b:String(x.b||"").replace(/[<>&"]/g,"")})))}catch(e){}
+{const d0=s=>document.querySelector(s),q0=document.querySelectorAll(".stat b"),A0=M.filter(m=>m.k=="a"),O0=M.find(m=>m.k=="o");q0[0].dataset.n=M.length;q0[1].dataset.n=M.filter(m=>m.k=="o").length;q0[2].dataset.n=A0.length;d0(".pill").textContent="PONY TOWN · MESSENGER · "+M.length+" THÀNH VIÊN";d0("#members .lead").textContent=M.length+" người, "+M.length+" chú pony. Bấm vào thẻ để xem chi tiết và tặng tim.";d0("#faq details:nth-of-type(3) p").textContent=(O0?O0.n+" là chủ box. ":"")+(A0.length?A0.map(m=>m.n).join(", ")+" là quản trị viên cùng chăm sóc nhóm.":"")}
 const $=s=>document.querySelector(s),sk=$("#sky"),cx=sk.getContext("2d");
 const RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
 const av=(m,c)=>`<div class="av" style="background:linear-gradient(135deg,hsl(${m.h} 85% 65%),hsl(${(m.h+60)%360} 80% 45%))">${m.n.trim()[0]}${m.k=="o"?"<em>👑</em>":m.k=="a"?"<em>🛡️</em>":""}</div>`;
@@ -386,7 +428,7 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 document.querySelectorAll(".rv").forEach(x=>io.observe(x));
 document.querySelectorAll("[data-n]").forEach(el=>{const n=+el.dataset.n;let v=0;const t=setInterval(()=>{el.textContent=++v;if(v>=n)clearInterval(t)},RM?1:140)});
 /* chữ chạy */
-const L=["Nơi những chú pony gặp nhau","Chủ box: Thanh Mai","Quản trị viên: Gia Bảo, Đăng Khánh, Nguyễn Trân","Vào chơi, vào cười, vào làm bạn"];let li=0,ci=0,del=false;
+const L=["Nơi những chú pony gặp nhau","Chủ box: "+((M.find(m=>m.k=="o")||{}).n||"Thanh Mai"),"Quản trị viên: "+(M.filter(m=>m.k=="a").map(m=>m.n).join(", ")||"đang cập nhật"),"Vào chơi, vào cười, vào làm bạn"];let li=0,ci=0,del=false;
 (function ty(){const s=L[li],tw=$("#tw");if(RM){tw.textContent=s;return}tw.textContent=s.slice(0,ci);if(!del&&ci==s.length){del=true;return setTimeout(ty,1500)}if(del&&ci==0){del=false;li=(li+1)%L.length}ci+=del?-1:1;setTimeout(ty,del?25:60)})();
 /* nền sao + hiệu ứng */
 let W,H,D,stars=[],fall=[],part=[],shoot=null,score=0,sc="#fff";
@@ -441,7 +483,7 @@ ow.addEventListener("pointermove",e=>{if(e.pointerType=="touch")return;const r=o
 ow.addEventListener("pointerleave",()=>{pw.style.transform="";ry.style.translate=""});
 ow.querySelectorAll(".sw button").forEach(b=>b.addEventListener("click",e=>{ow.style.setProperty("--sp",b.style.getPropertyValue("--c"));burst(e.clientX,e.clientY,20)}));
 $("#oimg").addEventListener("click",e=>{for(let i=0;i<4;i++)setTimeout(()=>burst(e.clientX,e.clientY,30),i*90);toast("Chủ box Thanh Mai 👑")});
-$("#oprof").addEventListener("click",()=>open(0));
+$("#oprof").addEventListener("click",()=>open(Math.max(0,M.findIndex(m=>m.k=="o"))));
 let ov=false;new IntersectionObserver(es=>ov=es[0].isIntersecting).observe(ow);
 if(!RM)setInterval(()=>{if(!ov)return;const r=pw.getBoundingClientRect();burst(r.left+Math.random()*r.width,r.top+Math.random()*r.height,4)},500);
 /* bá khí + trắc nghiệm + điều hướng */
@@ -511,6 +553,36 @@ function ns(){try{localStorage.setItem("pnotes",JSON.stringify(nts))}catch(e){}}
 $("#wa").addEventListener("click",()=>{const v=$("#wi").value.trim();if(!v)return;nts.push(v.slice(0,60));if(nts.length>24)nts.shift();$("#wi").value="";ns();nr();burst(innerWidth/2,innerHeight/2,20);beep(660,.1)});
 $("#wi").addEventListener("keydown",e=>{if(e.key=="Enter")$("#wa").click()});
 $("#wx").addEventListener("click",()=>{nts=[];ns();nr()});nr();
+
+/* bảng điều khiển */
+function rt(){const oi=M.findIndex(m=>m.k=="o"),as=[];M.forEach((m,i)=>{if(m.k=="a")as.push(i)});const nd=(i,c,e)=>`<div class="node ${c}" data-i="${i}" tabindex="0" role="button">${e} ${M[i].n}<small>${M[i].t}${M[i].n=="Đăng Khánh"?" · bô xe cấp cao":""}</small></div>`;const rest=M.length-(oi>=0?1:0)-as.length;$("#tree").innerHTML=(oi>=0?nd(oi,"o","👑")+'<div class="link"></div>':"")+(as.length?'<div class="lvl">'+as.map(i=>nd(i,"a","🛡️")).join("")+'</div><div class="link"></div>':"")+`<div class="node" id="allm" tabindex="0" role="button">🐴 ${rest} thành viên khác<small>Xem tất cả</small></div>`}rt();
+const CH="6f345c8948d277e685a21b88d7fe32c133538569599481558c5b8fefd1fb26fb",CF="f7d42b924";
+async function hx(s){try{if(window.crypto&&crypto.subtle){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}}catch(e){}let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imul(h,16777619)>>>0}return"f"+h.toString(16)}
+const adm=$("#adm"),ad=new Audio();let un=false,TK=[],ti=-1;
+try{un=sessionStorage.getItem("pu")=="1"}catch(e){}
+const cl2=s=>String(s).replace(/[<>&"]/g,"");
+function idb(){return new Promise((res,rej)=>{const r=indexedDB.open("pbox",1);r.onupgradeneeded=()=>r.result.createObjectStore("trk",{keyPath:"id",autoIncrement:true});r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
+async function dbx(mode,fn){const d=await idb();return new Promise((res,rej)=>{const t=d.transaction("trk",mode);const q=fn(t.objectStore("trk"));t.oncomplete=()=>res(q&&q.result);t.onerror=()=>rej(t.error)})}
+function svm(){try{localStorage.setItem("pmem",JSON.stringify(M))}catch(e){return toast("Không lưu được trên trình duyệt này")}try{sessionStorage.setItem("pp","1")}catch(e){}toast("Đã lưu, đang tải lại…");setTimeout(()=>location.reload(),700)}
+function apn(){const ul=$("#aml");ul.innerHTML=M.map((m,i)=>`<li><span>${m.k=="o"?"👑":m.k=="a"?"🛡️":"🦄"}</span><span></span><button class="btn" data-d="${i}" type="button">Xóa</button></li>`).join("");[...ul.children].forEach((li,i)=>li.children[1].textContent=M[i].n+" · "+M[i].t);const tl=$("#atl");tl.innerHTML=TK.length?TK.map((t,i)=>`<li><button class="btn" data-p="${i}" type="button" aria-label="Phát">▶</button><span></span><button class="btn" data-x="${i}" type="button" aria-label="Xóa bài">✕</button></li>`).join(""):"<li>Chưa có bài nào.</li>";if(TK.length)[...tl.children].forEach((li,i)=>li.children[1].textContent=TK[i].name);$("#mp").hidden=!TK.length}
+function ashow(){adm.classList.add("show");$("#alk").hidden=un;$("#apn").hidden=!un;apn();(un?$("#anm"):$("#ac")).focus()}
+$("#gear").addEventListener("click",ashow);
+$("#ax").addEventListener("click",()=>adm.classList.remove("show"));
+adm.addEventListener("click",e=>{if(e.target===adm)adm.classList.remove("show")});
+addEventListener("keydown",e=>{if(e.key=="Escape")adm.classList.remove("show")});
+$("#aok").addEventListener("click",async()=>{const v=await hx($("#ac").value.trim());if(v==CH||v==CF){un=true;try{sessionStorage.setItem("pu","1")}catch(e){}$("#ac").value="";burst(innerWidth/2,innerHeight/2,40);toast("Mở khóa thành công!");ashow()}else{toast("Sai mã rồi!");$("#ac").value=""}});
+$("#ac").addEventListener("keydown",e=>{if(e.key=="Enter")$("#aok").click()});
+document.querySelectorAll(".atab").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".atab").forEach(x=>x.setAttribute("aria-pressed",x==b));$("#atm").hidden=b.dataset.t!="m";$("#ats").hidden=b.dataset.t!="s"}));
+$("#aadd").addEventListener("click",()=>{const n=cl2($("#anm").value.trim()).slice(0,40);if(!n)return toast("Nhập tên thành viên");const k=$("#ak").value;M.push({n,k,t:{o:"Chủ box",a:"Quản trị viên",m:"Thành viên"}[k],h:Math.random()*360|0,b:cl2($("#ab").value.trim()).slice(0,160)||"Thành viên mới của gia đình pony."});svm()});
+$("#aml").addEventListener("click",e=>{const b=e.target.closest("[data-d]");if(!b)return;if(b.dataset.c!="1"){b.dataset.c="1";b.textContent="Chắc chưa?";setTimeout(()=>{b.dataset.c="";b.textContent="Xóa"},2500);return}if(M.length<=1)return toast("Cần giữ lại ít nhất 1 thành viên");M.splice(+b.dataset.d,1);svm()});
+$("#arst").addEventListener("click",()=>{try{localStorage.removeItem("pmem")}catch(e){}try{sessionStorage.setItem("pp","1")}catch(e){}location.reload()});
+function pt(i){if(!TK.length)return;ti=(i+TK.length)%TK.length;ad.src=TK[ti].src;ad.play().then(()=>{$("#mpp").textContent="⏸";$("#mpt").textContent="🎵 "+TK[ti].name}).catch(()=>{toast("Không phát được bài này");$("#mpp").textContent="▶"})}
+$("#mpp").addEventListener("click",()=>{if(ti<0)return pt(0);if(ad.paused){ad.play();$("#mpp").textContent="⏸"}else{ad.pause();$("#mpp").textContent="▶"}});
+$("#mpn").addEventListener("click",()=>pt(ti+1));ad.addEventListener("ended",()=>pt(ti+1));
+$("#tadd").addEventListener("click",async()=>{const f=$("#tf").files[0],u=$("#tu").value.trim();if(!f&&!u)return toast("Chọn tệp nhạc hoặc dán link");const rec={name:cl2($("#tn").value.trim()||(f?f.name.replace(/\.[^.]+$/,""):"Bài hát mới")).slice(0,60)};if(f)rec.blob=f;else rec.url=u;try{rec.id=await dbx("readwrite",s=>s.add(rec))}catch(e){rec.id=Date.now()}rec.src=rec.blob?URL.createObjectURL(rec.blob):rec.url;TK.push(rec);$("#tn").value="";$("#tu").value="";$("#tf").value="";apn();toast("Đã thêm nhạc!")});
+$("#atl").addEventListener("click",e=>{const p=e.target.closest("[data-p]"),x=e.target.closest("[data-x]");if(p)pt(+p.dataset.p);if(x){const i=+x.dataset.x,t=TK[i];if(i===ti){ad.pause();ti=-1;$("#mpp").textContent="▶";$("#mpt").textContent="🎵"}else if(i<ti)ti--;dbx("readwrite",s=>s.delete(t.id)).catch(()=>{});if(t.blob)URL.revokeObjectURL(t.src);TK.splice(i,1);apn()}});
+dbx("readonly",s=>s.getAll()).then(a=>{TK=(a||[]).map(r=>({...r,src:r.blob?URL.createObjectURL(r.blob):r.url}));apn()}).catch(()=>{});
+try{if(sessionStorage.getItem("pp")=="1"){sessionStorage.removeItem("pp");if(un)ashow()}}catch(e){}
 </script>
 </body>
 </html>
