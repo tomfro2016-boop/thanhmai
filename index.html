@@ -194,7 +194,7 @@ footer{text-align:center;padding:26px 20px 100px;background:var(--ink);color:var
 <div id="bar"></div><div id="glow" aria-hidden="true"></div>
 <div id="toast" role="status"></div>
 <div id="pre"><span style="font-size:60px;animation:fl .7s ease-in-out infinite">🦄</span><b>Đang gọi pony</b><div><i id="pi"></i></div></div><div id="cur" aria-hidden="true"></div>
-<div class="fab"><button id="score" type="button" aria-label="Số sao đã bắt">⭐ 0</button><button id="snd" type="button" aria-label="Bật tắt âm thanh">🔇</button><button id="theme" type="button" aria-label="Đổi giao diện sáng tối">🌗</button><button id="rain" type="button" aria-label="Mưa pony">🦄</button><button id="gear" type="button" aria-label="Bảng điều khiển">⚙️</button></div>
+<div class="fab"><button id="score" type="button" aria-label="Số sao đã bắt">⭐ 0</button><button id="snd" type="button" aria-label="Bật tắt âm thanh">🔇</button><button id="theme" type="button" aria-label="Đổi giao diện sáng tối">🌗</button><button id="tune" type="button" aria-label="Đổi bản nhạc nền">🎶</button><button id="rain" type="button" aria-label="Mưa pony">🦄</button><button id="gear" type="button" aria-label="Bảng điều khiển">⚙️</button></div>
 <nav class="nv" aria-label="Điều hướng"><a class="brand" href="#top">✦ BOX</a><a href="#about">Giới thiệu</a><a href="#owner">Chủ box</a><a href="#uniform">Đồng phục</a><a href="#members">Thành viên</a><a href="#rules">Luật</a><a href="#maker">Tạo pony</a><a href="#game">Chơi</a><a href="#wheel">Vòng quay</a><a href="#fortune">Bói</a><a href="#wall">Tường</a><a href="#quiz">Trắc nghiệm</a><a class="go" href="#join">Vào box</a></nav>
 
 <header class="hero" id="top">
@@ -520,8 +520,10 @@ const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)nl.forE
 let cur=0;const HT=[];
 let au=null,snd=false,mus=null;
 function beep(f,d=.12,t="square",v=.05){if(!snd)return;try{au=au||new(window.AudioContext||window.webkitAudioContext)();const o=au.createOscillator(),g=au.createGain();o.type=t;o.frequency.value=f;g.gain.value=v;g.gain.exponentialRampToValueAtTime(.0001,au.currentTime+d);o.connect(g);g.connect(au.destination);o.start();o.stop(au.currentTime+d)}catch(e){}}
-const NT=[523,659,784,988,784,659,587,698,880,1047,880,698];let ni=0;
-$("#snd").addEventListener("click",e=>{snd=!snd;e.currentTarget.textContent=snd?"🔊":"🔇";clearInterval(mus);if(snd){beep(880,.2);mus=setInterval(()=>beep(NT[ni++%NT.length],.25,"triangle",.035),280)}});
+const TN=[{n:"Phiêu lưu",t:200,w:"square",v:.028,s:[523,587,659,784,659,587,523,392,440,523,587,659,587,523,440,392]},{n:"Mơ màng",t:380,w:"sine",v:.06,s:[262,330,392,523,392,330,262,0,220,262,330,440,330,262,220,0,175,220,262,349,262,220,175,0,196,247,294,392,294,247,196,0]},{n:"Lofi chill",t:300,w:"triangle",v:.05,s:[220,0,330,0,262,0,330,0,175,0,262,0,220,0,262,0,196,0,294,0,247,0,294,0,165,0,247,0,196,0,247,0]},{n:"Vui nhộn",t:150,w:"square",v:.022,s:[784,0,659,784,0,880,784,0,659,0,523,0,587,659,0,587,523,0,659,0,784,0,1047,0,880,784,0,659,587,0,523,0]}];let cTune=0,cStep=0;
+function mst(){clearInterval(mus);if(!snd)return;const T=TN[cTune];mus=setInterval(()=>{const f=T.s[cStep++%T.s.length];if(f)beep(f,T.t/1000*.9,T.w,T.v)},T.t)}
+$("#snd").addEventListener("click",e=>{snd=!snd;e.currentTarget.textContent=snd?"🔊":"🔇";if(snd){beep(880,.2);toast("Nhạc nền: "+TN[cTune].n)}mst()});
+$("#tune").addEventListener("click",()=>{cTune=(cTune+1)%TN.length;cStep=0;if(!snd){snd=true;$("#snd").textContent="🔊"}mst();toast("Nhạc nền: "+TN[cTune].n)});
 setTimeout(()=>{$("#pi").style.width="100%"},60);setTimeout(()=>$("#pre").classList.add("off"),1300);
 const cu=$("#cur");let cpx=0,cpy=0,ctx2=0,cty=0;
 addEventListener("pointermove",e=>{ctx2=e.clientX;cty=e.clientY});
