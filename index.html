@@ -199,7 +199,7 @@ footer{text-align:center;padding:26px 20px 100px;background:var(--ink);color:var
 
 <header class="hero" id="top">
   <span class="fs" style="top:6%;left:5%;--r:-14deg">🌈</span><span class="fs" style="top:12%;right:7%;--r:12deg;animation-delay:-1s">⭐</span><span class="fs" style="top:50%;left:3%;--r:10deg;animation-delay:-2s">💖</span><span class="fs" style="top:58%;right:4%;--r:-8deg;animation-delay:-3s">🦄</span><span class="fs" style="top:32%;left:13%;--r:6deg;animation-delay:-1.5s;font-size:30px">✨</span>
-  <span class="pill">PONY TOWN · MESSENGER · 13 THÀNH VIÊN</span>
+  <span class="pill">PONY TOWN · MESSENGER · 18 THÀNH VIÊN</span>
   <h1 class="nm">亗§𝓣.𝓴ෆ⋅˚ ୨୧Շгєภ๔เภﻮ‧₊</h1>
   <p class="sub">PONYTOWN BOX</p>
   <p class="type"><span id="tw"></span><i></i></p>
@@ -208,7 +208,7 @@ footer{text-align:center;padding:26px 20px 100px;background:var(--ink);color:var
     <a class="btn" href="#members">Gặp thành viên</a>
   </div>
   <div class="stats">
-    <div class="stat"><b data-n="13">0</b><span>thành viên</span></div>
+    <div class="stat"><b data-n="18">0</b><span>thành viên</span></div>
     <div class="stat"><b data-n="1">0</b><span>chủ box</span></div>
     <div class="stat"><b data-n="3">0</b><span>quản trị viên</span></div>
     <div class="stat"><b data-n="13">0</b><span>điều luật</span></div>
@@ -268,7 +268,7 @@ footer{text-align:center;padding:26px 20px 100px;background:var(--ink);color:var
 
 <section id="members"><div class="wrap">
   <h2 class="rv">Thành viên</h2>
-  <p class="lead rv">Mười ba người, mười ba chú pony. Bấm vào thẻ để xem chi tiết và tặng tim.</p>
+  <p class="lead rv">18 người, 18 chú pony. Bấm vào thẻ để xem chi tiết và tặng tim.</p>
   <input class="sq rv" id="sq" type="search" placeholder="Tìm thành viên…" aria-label="Tìm thành viên" autocomplete="off">
   <div class="chips rv" id="chips">
     <button class="chip" data-f="all" aria-pressed="true">Tất cả</button>
@@ -369,7 +369,7 @@ footer{text-align:center;padding:26px 20px 100px;background:var(--ink);color:var
  <div class="ah"><h3>⚙️ Bảng điều khiển</h3><button class="btn" id="ax" type="button">Đóng</button></div>
  <div id="alk"><label>Nhập mã để mở bảng điều khiển<input id="ac" type="password" autocomplete="off"></label><button class="btn main" id="aok" type="button">Mở khóa</button></div>
  <div id="apn" hidden>
-  <div class="chips"><button class="chip atab" data-t="m" aria-pressed="true" type="button">Thành viên</button><button class="chip atab" data-t="s" aria-pressed="false" type="button">Nhạc</button></div>
+  <div class="chips"><button class="chip atab" data-t="m" aria-pressed="true" type="button">Thành viên</button><button class="chip atab" data-t="s" aria-pressed="false" type="button">Nhạc</button><button class="chip atab" data-t="g" aria-pressed="false" type="button">Đồng bộ</button></div>
   <div id="atm">
    <label>Tên thành viên<input id="anm" maxlength="40" autocomplete="off"></label>
    <label>Vai trò<select id="ak"><option value="m">Thành viên</option><option value="a">Quản trị viên</option><option value="o">Chủ box</option></select></label>
@@ -385,7 +385,16 @@ footer{text-align:center;padding:26px 20px 100px;background:var(--ink);color:var
    <button class="btn main" id="tadd" type="button">Thêm nhạc</button>
    <ul class="al" id="atl"></ul>
   </div>
-  <p class="an">Thay đổi chỉ lưu trên thiết bị và trình duyệt này.</p>
+    <div id="atg" hidden>
+   <p class="an" style="margin:0 0 12px">Điền thông tin kho GitHub để mỗi lần thêm hoặc xóa thành viên, danh sách tự cập nhật cho cả web. Nên dùng token chỉ có quyền ghi nội dung (Contents) của đúng kho này.</p>
+   <label>Kho GitHub (chủ-sở-hữu/tên-kho)<input id="ghr" autocomplete="off" placeholder="ten-ban/ten-kho"></label>
+   <label>Nhánh<input id="ghb" autocomplete="off" value="main"></label>
+   <label>Tệp dữ liệu<input id="ghp" autocomplete="off" value="members.json"></label>
+   <label>Token cá nhân (chỉ lưu trên máy này)<input id="ghk" type="password" autocomplete="off" placeholder="github_pat_…"></label>
+   <div class="btns" style="margin:4px 0 0;justify-content:flex-start"><button class="btn main" id="ghv" type="button">Lưu và đồng bộ</button><button class="btn" id="ghj" type="button">Sao chép JSON</button><button class="btn" id="ghx" type="button">Tắt đồng bộ</button></div>
+   <p class="an" id="ghs">Chưa bật đồng bộ.</p>
+  </div>
+  <p class="an">Thay đổi được tự động lưu trên thiết bị này. Bật Đồng bộ để cập nhật cho cả web.</p>
  </div>
 </div></div>
 <div id="modal" role="dialog" aria-modal="true" aria-labelledby="mn"><div class="sheet" id="sheet"></div></div>
@@ -396,17 +405,23 @@ const M=[
 {n:"Thanh Mai",k:"o",t:"Chủ box",h:330,b:"Người lập ra box và giữ cho ngôi nhà này luôn ấm áp. Mọi ý tưởng vui đều bắt đầu từ đây."},
 {n:"Gia Bảo",k:"a",t:"Quản trị viên",h:200,b:"Quản trị viên đồng hành cùng chủ box, giữ nhịp và giữ không khí vui cho cả nhóm."},
 {n:"Đăng Khánh",k:"a",t:"Quản trị viên",h:270,b:"Bô xe cấp cao của box. Quản trị viên hay xuất hiện đúng lúc, luôn sẵn sàng rủ cả box vào game."},
-{n:"Sa Ra",k:"m",t:"Thành viên",h:280,b:"Thành viên tinh nghịch với phong cách tím mộng mơ, được chính bạn thêm vào box."},
 {n:"AN Đt",k:"m",t:"Thành viên",h:0,b:"Thành viên bí ẩn với biệt danh @CanThanSauLung. Cẩn thận phía sau lưng nhé!"},
 {n:"Khang Lê",k:"m",t:"Thành viên",h:30,b:"Thành viên thân thiện, do Thanh Mai mời vào box. Tên tài khoản @khang.le.708926."},
 {n:"Nguyễn Kiro",k:"m",t:"Thành viên",h:150,b:"Thành viên mê mèo, góp thêm nhiều tiếng cười cho box."},
-{n:"Nguyễn Linh",k:"m",t:"Thành viên",h:310,b:"Thành viên dịu dàng, do Thanh Mai mời vào box."},
 {n:"Nguyễn Trân",k:"a",t:"Quản trị viên",h:180,b:"Quản trị viên của box. Tên tài khoản @nguyen.tran.265326."},
 {n:"Nhớ Người Yêu Cũ",k:"m",t:"Thành viên",h:50,b:"Thành viên có cái tên khiến ai cũng tò mò, do Thanh Mai mời vào box."},
 {n:"La Ngọc Mỹ Ái",k:"m",t:"Thành viên",h:340,b:"Thành viên mới của gia đình pony, mang thêm nhiều tiếng cười cho box."},
 {n:"DN Linhh",k:"m",t:"Thành viên",h:120,b:"Thành viên mới của gia đình pony, góp thêm một chú pony vui vẻ cho box."},
-{n:"Ngủ Say Mùa Đông",k:"m",t:"Thành viên",h:210,b:"Thành viên có cái tên thật mơ màng, như giấc ngủ giữa mùa đông."}];
-try{const sv0=JSON.parse(localStorage.getItem("pmem")||"null");if(Array.isArray(sv0)&&sv0.length)M.splice(0,M.length,...sv0.map(x=>({n:String(x.n).replace(/[<>&"]/g,""),k:["o","a","m"].includes(x.k)?x.k:"m",t:String(x.t).replace(/[<>&"]/g,""),h:+x.h||0,b:String(x.b||"").replace(/[<>&"]/g,"")})))}catch(e){}
+{n:"Ngủ Say Mùa Đông",k:"m",t:"Thành viên",h:210,b:"Thành viên có cái tên thật mơ màng, như giấc ngủ giữa mùa đông."},
+{n:"Bich Bun",k:"m",t:"Thành viên",h:320,b:"Thành viên đáng yêu, luôn mang theo nụ cười vào box."},
+{n:"Dương Thùy Chi",k:"m",t:"Thành viên",h:260,b:"Thành viên dịu dàng, góp thêm sắc màu cho gia đình pony."},
+{n:"Ngoc Anh",k:"m",t:"Thành viên",h:170,b:"Thành viên vui vẻ, luôn sẵn sàng rủ cả nhóm vào game."},
+{n:"Ngu Nhất Thế Giới",k:"m",t:"Thành viên",h:20,b:"Thành viên có biệt danh siêu ngầu, nghe tên là nhớ ngay."},
+{n:"Nhật Hoangg",k:"m",t:"Thành viên",h:90,b:"Thành viên mới của gia đình pony, hay xuất hiện lúc cả box đang vui."},
+{n:"Noliaa Aline",k:"m",t:"Thành viên",h:300,b:"Thành viên mới của gia đình pony, mang theo phong cách rất riêng."},
+{n:"Vii Tuog",k:"m",t:"Thành viên",h:230,b:"Thành viên mới của gia đình pony, nhỏ nhắn mà nhiều năng lượng."}];
+const M0=M.map(m=>({...m}));
+try{let sv0=JSON.parse(localStorage.getItem("pmem")||"null");sv0=sv0&&!Array.isArray(sv0)?sv0.m:null;if(Array.isArray(sv0)&&sv0.length)M.splice(0,M.length,...sv0.map(x=>({n:String(x.n).replace(/[<>&"]/g,""),k:["o","a","m"].includes(x.k)?x.k:"m",t:String(x.t).replace(/[<>&"]/g,""),h:+x.h||0,b:String(x.b||"").replace(/[<>&"]/g,"")})))}catch(e){}
 {const d0=s=>document.querySelector(s),q0=document.querySelectorAll(".stat b"),A0=M.filter(m=>m.k=="a"),O0=M.find(m=>m.k=="o");q0[0].dataset.n=M.length;q0[1].dataset.n=M.filter(m=>m.k=="o").length;q0[2].dataset.n=A0.length;d0(".pill").textContent="PONY TOWN · MESSENGER · "+M.length+" THÀNH VIÊN";d0("#members .lead").textContent=M.length+" người, "+M.length+" chú pony. Bấm vào thẻ để xem chi tiết và tặng tim.";d0("#faq details:nth-of-type(3) p").textContent=(O0?O0.n+" là chủ box. ":"")+(A0.length?A0.map(m=>m.n).join(", ")+" là quản trị viên cùng chăm sóc nhóm.":"")}
 const $=s=>document.querySelector(s),sk=$("#sky"),cx=sk.getContext("2d");
 const RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
@@ -538,10 +553,10 @@ document.addEventListener("pointermove",e=>{const t=e.target.closest&&e.target.c
 /* v5 */
 const PAL=["#ff6fb5","#ffd23f","#3ddc97","#5bc0ff","#a78bfa"];
 const t2=["PONY TOWN","KẾT BẠN","KHOE SKIN","DẠO RỪNG","VUI LÀ CHÍNH"].map(s=>`<span>${s} ★</span>`).join("");$("#mq2").innerHTML=t2+t2;
-const dI=Math.floor(Date.now()/864e5)%M.length;$("#dmn").textContent=M[dI].n;$("#dm").addEventListener("click",()=>open(dI));
+let dI=Math.floor(Date.now()/864e5)%M.length;$("#dmn").textContent=M[dI].n;$("#dm").addEventListener("click",()=>open(dI));
 ["wheel","fortune","wall"].forEach(id=>so.observe(document.getElementById(id)));
-const wc=$("#wc"),wg=wc.getContext("2d"),WN=M.length,WA=360/WN;let wrot=0,spinning=false,wi=0;
-(function(){const c=220,r=212;wg.font="700 15px 'Be Vietnam Pro',sans-serif";wg.lineWidth=3;wg.strokeStyle="#17121f";M.forEach((m,i)=>{const a0=(i*WA-90)*Math.PI/180,a1=((i+1)*WA-90)*Math.PI/180;wg.beginPath();wg.moveTo(c,c);wg.arc(c,c,r,a0,a1);wg.closePath();wg.fillStyle=PAL[i%5];wg.fill();wg.stroke();wg.save();wg.translate(c,c);wg.rotate((a0+a1)/2);wg.fillStyle="#17121f";wg.textAlign="right";wg.textBaseline="middle";wg.fillText(m.n.length>11?m.n.slice(0,10)+"…":m.n,r-16,0);wg.restore()});wg.beginPath();wg.arc(c,c,26,0,7);wg.fillStyle="#fff";wg.fill();wg.stroke()})();
+const wc=$("#wc"),wg=wc.getContext("2d");let WN=M.length,WA=360/WN,wrot=0,spinning=false,wi=0;
+function dw(){wg.clearRect(0,0,440,440);const c=220,r=212;wg.font="700 15px 'Be Vietnam Pro',sans-serif";wg.lineWidth=3;wg.strokeStyle="#17121f";M.forEach((m,i)=>{const a0=(i*WA-90)*Math.PI/180,a1=((i+1)*WA-90)*Math.PI/180;wg.beginPath();wg.moveTo(c,c);wg.arc(c,c,r,a0,a1);wg.closePath();wg.fillStyle=PAL[i%5];wg.fill();wg.stroke();wg.save();wg.translate(c,c);wg.rotate((a0+a1)/2);wg.fillStyle="#17121f";wg.textAlign="right";wg.textBaseline="middle";wg.fillText(m.n.length>11?m.n.slice(0,10)+"…":m.n,r-16,0);wg.restore()});wg.beginPath();wg.arc(c,c,26,0,7);wg.fillStyle="#fff";wg.fill();wg.stroke()}dw();
 $("#spin").addEventListener("click",()=>{if(spinning)return;spinning=true;wi=Math.floor(Math.random()*WN);wrot=(Math.floor(wrot/360)+6)*360-(wi*WA+WA/2);wc.style.transform=`rotate(${wrot}deg)`;$("#wr").textContent="Đang quay…";$("#wo").hidden=true;beep(500,.1);setTimeout(()=>{spinning=false;$("#wr").textContent=M[wi].n+" "+(M[wi].k=="o"?"👑":M[wi].k=="a"?"🛡️":"🦄");$("#wo").hidden=false;burst(innerWidth/2,innerHeight/2,50);toast("Trúng "+M[wi].n+"!")},4300)});
 $("#wo").addEventListener("click",()=>open(wi));
 const FC=[["Hồng kẹo","#ff6fb5"],["Vàng nắng","#ffd23f"],["Bạc hà","#3ddc97"],["Xanh trời","#5bc0ff"],["Tím mộng mơ","#a78bfa"]],FM=["Hôm nay hợp để rủ cả box vào game.","Một chiếc skin mới đang chờ bạn.","Có người sẽ nhắn bạn đầu tiên đấy.","Cười thật nhiều, pony sẽ chạy nhanh hơn.","Đừng quên đọc lại luật box nhé.","Hãy chào một thành viên mới hôm nay."];
@@ -563,19 +578,19 @@ try{un=sessionStorage.getItem("pu")=="1"}catch(e){}
 const cl2=s=>String(s).replace(/[<>&"]/g,"");
 function idb(){return new Promise((res,rej)=>{const r=indexedDB.open("pbox",1);r.onupgradeneeded=()=>r.result.createObjectStore("trk",{keyPath:"id",autoIncrement:true});r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
 async function dbx(mode,fn){const d=await idb();return new Promise((res,rej)=>{const t=d.transaction("trk",mode);const q=fn(t.objectStore("trk"));t.oncomplete=()=>res(q&&q.result);t.onerror=()=>rej(t.error)})}
-function svm(){try{localStorage.setItem("pmem",JSON.stringify(M))}catch(e){return toast("Không lưu được trên trình duyệt này")}try{sessionStorage.setItem("pp","1")}catch(e){}toast("Đã lưu, đang tải lại…");setTimeout(()=>location.reload(),700)}
+function svm(){LT=Date.now();try{localStorage.setItem("pmem",JSON.stringify({t:LT,m:M}))}catch(e){toast("Không lưu được trên trình duyệt này")}rf();toast("Đã tự động lưu");pushGH()}
 function apn(){const ul=$("#aml");ul.innerHTML=M.map((m,i)=>`<li><span>${m.k=="o"?"👑":m.k=="a"?"🛡️":"🦄"}</span><span></span><button class="btn" data-d="${i}" type="button">Xóa</button></li>`).join("");[...ul.children].forEach((li,i)=>li.children[1].textContent=M[i].n+" · "+M[i].t);const tl=$("#atl");tl.innerHTML=TK.length?TK.map((t,i)=>`<li><button class="btn" data-p="${i}" type="button" aria-label="Phát">▶</button><span></span><button class="btn" data-x="${i}" type="button" aria-label="Xóa bài">✕</button></li>`).join(""):"<li>Chưa có bài nào.</li>";if(TK.length)[...tl.children].forEach((li,i)=>li.children[1].textContent=TK[i].name);$("#mp").hidden=!TK.length}
-function ashow(){adm.classList.add("show");$("#alk").hidden=un;$("#apn").hidden=!un;apn();(un?$("#anm"):$("#ac")).focus()}
+function ashow(){adm.classList.add("show");$("#alk").hidden=un;$("#apn").hidden=!un;apn();gfill();(un?$("#anm"):$("#ac")).focus()}
 $("#gear").addEventListener("click",ashow);
 $("#ax").addEventListener("click",()=>adm.classList.remove("show"));
 adm.addEventListener("click",e=>{if(e.target===adm)adm.classList.remove("show")});
 addEventListener("keydown",e=>{if(e.key=="Escape")adm.classList.remove("show")});
 $("#aok").addEventListener("click",async()=>{const v=await hx($("#ac").value.trim());if(v==CH||v==CF){un=true;try{sessionStorage.setItem("pu","1")}catch(e){}$("#ac").value="";burst(innerWidth/2,innerHeight/2,40);toast("Mở khóa thành công!");ashow()}else{toast("Sai mã rồi!");$("#ac").value=""}});
 $("#ac").addEventListener("keydown",e=>{if(e.key=="Enter")$("#aok").click()});
-document.querySelectorAll(".atab").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".atab").forEach(x=>x.setAttribute("aria-pressed",x==b));$("#atm").hidden=b.dataset.t!="m";$("#ats").hidden=b.dataset.t!="s"}));
-$("#aadd").addEventListener("click",()=>{const n=cl2($("#anm").value.trim()).slice(0,40);if(!n)return toast("Nhập tên thành viên");const k=$("#ak").value;M.push({n,k,t:{o:"Chủ box",a:"Quản trị viên",m:"Thành viên"}[k],h:Math.random()*360|0,b:cl2($("#ab").value.trim()).slice(0,160)||"Thành viên mới của gia đình pony."});svm()});
-$("#aml").addEventListener("click",e=>{const b=e.target.closest("[data-d]");if(!b)return;if(b.dataset.c!="1"){b.dataset.c="1";b.textContent="Chắc chưa?";setTimeout(()=>{b.dataset.c="";b.textContent="Xóa"},2500);return}if(M.length<=1)return toast("Cần giữ lại ít nhất 1 thành viên");M.splice(+b.dataset.d,1);svm()});
-$("#arst").addEventListener("click",()=>{try{localStorage.removeItem("pmem")}catch(e){}try{sessionStorage.setItem("pp","1")}catch(e){}location.reload()});
+document.querySelectorAll(".atab").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".atab").forEach(x=>x.setAttribute("aria-pressed",x==b));$("#atm").hidden=b.dataset.t!="m";$("#ats").hidden=b.dataset.t!="s";$("#atg").hidden=b.dataset.t!="g"}));
+$("#aadd").addEventListener("click",()=>{const n=cl2($("#anm").value.trim()).slice(0,40);if(!n)return toast("Nhập tên thành viên");const k=$("#ak").value;M.push({n,k,t:{o:"Chủ box",a:"Quản trị viên",m:"Thành viên"}[k],h:Math.random()*360|0,b:cl2($("#ab").value.trim()).slice(0,160)||"Thành viên mới của gia đình pony."});$("#anm").value="";$("#ab").value="";svm()});
+$("#aml").addEventListener("click",e=>{const b=e.target.closest("[data-d]");if(!b)return;if(b.dataset.c!="1"){b.dataset.c="1";b.textContent="Chắc chưa?";setTimeout(()=>{b.dataset.c="";b.textContent="Xóa"},2500);return}if(M.length<=1)return toast("Cần giữ lại ít nhất 1 thành viên");M.splice(+b.dataset.d,1);HT.splice(+b.dataset.d,1);svm()});
+$("#arst").addEventListener("click",()=>{M.splice(0,M.length,...M0.map(m=>({...m})));HT.length=0;svm()});
 function pt(i){if(!TK.length)return;ti=(i+TK.length)%TK.length;ad.src=TK[ti].src;ad.play().then(()=>{$("#mpp").textContent="⏸";$("#mpt").textContent="🎵 "+TK[ti].name}).catch(()=>{toast("Không phát được bài này");$("#mpp").textContent="▶"})}
 $("#mpp").addEventListener("click",()=>{if(ti<0)return pt(0);if(ad.paused){ad.play();$("#mpp").textContent="⏸"}else{ad.pause();$("#mpp").textContent="▶"}});
 $("#mpn").addEventListener("click",()=>pt(ti+1));ad.addEventListener("ended",()=>pt(ti+1));
@@ -583,6 +598,25 @@ $("#tadd").addEventListener("click",async()=>{const f=$("#tf").files[0],u=$("#tu
 $("#atl").addEventListener("click",e=>{const p=e.target.closest("[data-p]"),x=e.target.closest("[data-x]");if(p)pt(+p.dataset.p);if(x){const i=+x.dataset.x,t=TK[i];if(i===ti){ad.pause();ti=-1;$("#mpp").textContent="▶";$("#mpt").textContent="🎵"}else if(i<ti)ti--;dbx("readwrite",s=>s.delete(t.id)).catch(()=>{});if(t.blob)URL.revokeObjectURL(t.src);TK.splice(i,1);apn()}});
 dbx("readonly",s=>s.getAll()).then(a=>{TK=(a||[]).map(r=>({...r,src:r.blob?URL.createObjectURL(r.blob):r.url}));apn()}).catch(()=>{});
 try{if(sessionStorage.getItem("pp")=="1"){sessionStorage.removeItem("pp");if(un)ashow()}}catch(e){}
+
+/* cập nhật trực tiếp + tự đồng bộ */
+let LT=0;try{const p0=JSON.parse(localStorage.getItem("pmem")||"null");if(p0&&!Array.isArray(p0))LT=+p0.t||0}catch(e){}
+const tl=c=>{c.addEventListener("pointermove",e=>{if(e.pointerType=="touch")return;const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;c.style.transform=`rotateY(${(x-.5)*18}deg) rotateX(${(.5-y)*18}deg) scale(1.04)`});c.addEventListener("pointerleave",()=>c.style.transform="")};
+function rg(){$("#grid").innerHTML=M.map((m,i)=>`<div class="card rv on ${m.k}" data-k="${m.k}" data-i="${i}" tabindex="0" role="button">${av(m)}<h3>${m.n}</h3><span class="role">${m.t}</span><p>${m.b.split(".")[0]}.</p></div>`).join("");document.querySelectorAll(".card").forEach(tl);fl2()}
+function stx(){const d0=s=>document.querySelector(s),q0=document.querySelectorAll(".stat b"),A0=M.filter(m=>m.k=="a"),O0=M.find(m=>m.k=="o");q0[0].textContent=M.length;q0[1].textContent=M.filter(m=>m.k=="o").length;q0[2].textContent=A0.length;d0(".pill").textContent="PONY TOWN · MESSENGER · "+M.length+" THÀNH VIÊN";d0("#members .lead").textContent=M.length+" người, "+M.length+" chú pony. Bấm vào thẻ để xem chi tiết và tặng tim.";d0("#faq details:nth-of-type(3) p").textContent=(O0?O0.n+" là chủ box. ":"")+(A0.length?A0.map(m=>m.n).join(", ")+" là quản trị viên cùng chăm sóc nhóm.":"");L[1]="Chủ box: "+((O0||{}).n||"Thanh Mai");L[2]="Quản trị viên: "+(A0.map(m=>m.n).join(", ")||"đang cập nhật")}
+function rf(){stx();if(performance.now()<3300)setTimeout(stx,3300-performance.now());rg();rt();const s=M.map(m=>`<span>${m.n} ✦</span>`).join("");$("#mq").innerHTML=s+s;dI=Math.floor(Date.now()/864e5)%M.length;$("#dmn").textContent=M[dI].n;WN=M.length;WA=360/WN;if(!spinning){wrot=0;wc.style.transition="none";wc.style.transform="rotate(0deg)";void wc.offsetWidth;wc.style.transition="";$("#wr").textContent="Bấm QUAY để bắt đầu";$("#wo").hidden=true}dw();apn()}
+const mm=x=>({n:String(x.n||"").replace(/[<>&"]/g,"").slice(0,40),k:["o","a","m"].includes(x.k)?x.k:"m",t:String(x.t||"").replace(/[<>&"]/g,"").slice(0,30),h:+x.h||0,b:String(x.b||"").replace(/[<>&"]/g,"").slice(0,160)});
+function gcfg(){try{const c=JSON.parse(localStorage.getItem("pgh")||"null");return c&&c.repo&&c.token?c:null}catch(e){return null}}
+function gfill(){try{const c=JSON.parse(localStorage.getItem("pgh")||"null")||{};$("#ghr").value=c.repo||"";$("#ghb").value=c.branch||"main";$("#ghp").value=c.path||"members.json";$("#ghk").value=c.token||"";if(c.repo&&!$("#ghs").dataset.s)gst2("Đồng bộ đang bật cho "+c.repo+".")}catch(e){}}
+function gst2(t){const e=$("#ghs");e.textContent=t;e.dataset.s="1"}
+const b64=s=>{let x="";new TextEncoder().encode(s).forEach(v=>x+=String.fromCharCode(v));return btoa(x)};
+let ghB=false,ghQ=false;
+async function pushGH(){const c=gcfg();if(!c)return;if(ghB){ghQ=true;return}ghB=true;gst2("Đang đồng bộ…");try{const u="https://api.github.com/repos/"+c.repo+"/contents/"+c.path.split("/").map(encodeURIComponent).join("/"),H={Authorization:"Bearer "+c.token,Accept:"application/vnd.github+json"};let sha;const g=await fetch(u+"?ref="+encodeURIComponent(c.branch),{headers:H,cache:"no-store"});if(g.ok)sha=(await g.json()).sha;else if(g.status!=404)throw new Error("GitHub trả về mã "+g.status);const body={message:"Cập nhật danh sách thành viên",content:b64(JSON.stringify({t:LT||Date.now(),m:M},null,1)),branch:c.branch};if(sha)body.sha=sha;const p=await fetch(u,{method:"PUT",headers:{...H,"Content-Type":"application/json"},body:JSON.stringify(body)});if(!p.ok)throw new Error("GitHub trả về mã "+p.status);gst2("Đã đồng bộ lúc "+new Date().toLocaleTimeString("vi-VN")+". Web công khai sẽ cập nhật sau khoảng 1 phút.")}catch(e){gst2("Lỗi đồng bộ: "+e.message)}ghB=false;if(ghQ){ghQ=false;pushGH()}}
+$("#ghv").addEventListener("click",()=>{const c={repo:$("#ghr").value.trim(),branch:$("#ghb").value.trim()||"main",path:$("#ghp").value.trim()||"members.json",token:$("#ghk").value.trim()};if(!/^[\w.-]+\/[\w.-]+$/.test(c.repo)||!c.token)return toast("Nhập đúng kho (chủ/tên-kho) và token");try{localStorage.setItem("pgh",JSON.stringify(c))}catch(e){return toast("Không lưu được cấu hình")}LT=Date.now();try{localStorage.setItem("pmem",JSON.stringify({t:LT,m:M}))}catch(e){}pushGH()});
+$("#ghx").addEventListener("click",()=>{try{localStorage.removeItem("pgh")}catch(e){}$("#ghk").value="";gst2("Đã tắt đồng bộ.")});
+$("#ghj").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(JSON.stringify({t:LT||Date.now(),m:M},null,1));toast("Đã sao chép nội dung members.json")}catch(e){toast("Không sao chép được")}});
+async function lr(){try{const r=await fetch("members.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const j=await r.json();if(j&&Array.isArray(j.m)&&(+j.t||0)>LT){const a=j.m.map(mm).filter(x=>x.n);if(!a.length)return;M.splice(0,M.length,...a);LT=+j.t;try{localStorage.setItem("pmem",JSON.stringify({t:LT,m:M}))}catch(e){}rf()}}catch(e){}}
+lr();setInterval(lr,300000);document.addEventListener("visibilitychange",()=>{if(!document.hidden)lr()});
 </script>
 </body>
 </html>
