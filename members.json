@@ -1,5 +1,5 @@
 {
- "t": 1794736086825,
+ "t": 1794915834038,
  "m": [
   {
    "n": "Thanh Mai",
@@ -10,6 +10,7 @@
   },
   {
    "n": "Gia Bảo",
+   "g": 1,
    "k": "a",
    "t": "Quản trị viên",
    "h": 200,
@@ -100,7 +101,15 @@
    "b": "Thành viên vui vẻ, luôn sẵn sàng rủ cả nhóm vào game."
   },
   {
+   "n": "Ngu Nhất Thế Giới",
+   "k": "m",
+   "t": "Thành viên",
+   "h": 20,
+   "b": "Thành viên có biệt danh siêu ngầu, nghe tên là nhớ ngay."
+  },
+  {
    "n": "Nhật Hoangg",
+   "g": 1,
    "k": "m",
    "t": "Thành viên",
    "h": 90,
@@ -121,18 +130,89 @@
    "b": "Thành viên mới của gia đình pony, nhỏ nhắn mà nhiều năng lượng."
   },
   {
-   "n": "Ngu Nhất Thế Giới",
+   "n": "Cóhạtđậutrênđầu Timey Bel",
    "k": "m",
    "t": "Thành viên",
-   "h": 22,
-   "b": "Béo nhất box, ăn mọi thứ, siêu béo, béo nhất thế giới"
+   "h": 150,
+   "b": "Thành viên có cái tên siêu độc đáo, nghe một lần là nhớ mãi."
   },
   {
-   "n": "Quynh Anh",
+   "n": "Đào Trọng",
    "k": "m",
    "t": "Thành viên",
-   "h": 185,
-   "b": "Tv mới do Nguyễn Trân tuyển, cute"
+   "h": 10,
+   "b": "Thành viên mới của gia đình pony, mang thêm năng lượng cho box."
+  },
+  {
+   "n": "Khánh Ngọc Nguyễn",
+   "g": 1,
+   "k": "m",
+   "t": "Thành viên",
+   "h": 200,
+   "b": "Thành viên thân thiện, vừa là khách vừa là người nhà của box."
+  },
+  {
+   "n": "Kim Trâm",
+   "k": "m",
+   "t": "Thành viên",
+   "h": 330,
+   "b": "Thành viên dịu dàng, góp thêm sắc màu cho gia đình pony."
+  },
+  {
+   "n": "Nguyễn Phương",
+   "k": "m",
+   "t": "Thành viên",
+   "h": 120,
+   "b": "Thành viên mới của gia đình pony, luôn sẵn sàng vào game cùng cả nhóm."
+  },
+  {
+   "n": "Nqoc Ah",
+   "k": "m",
+   "t": "Thành viên",
+   "h": 280,
+   "b": "Thành viên vui vẻ, mang theo nhiều tiếng cười cho box."
+  },
+  {
+   "n": "Phương Vy",
+   "k": "m",
+   "t": "Thành viên",
+   "h": 320,
+   "b": "Thành viên đáng yêu, góp thêm một chú pony xinh cho cả nhà."
+  },
+  {
+   "n": "Trần Minh Tuấn",
+   "k": "m",
+   "t": "Thành viên",
+   "h": 60,
+   "b": "Thành viên mới của gia đình pony, hay xuất hiện đúng lúc cả box đang vui."
+  },
+  {
+   "n": "Trịnh Ngọc Diệp",
+   "k": "m",
+   "t": "Thành viên",
+   "h": 240,
+   "b": "Thành viên nhẹ nhàng, thêm một nét dịu dàng cho box."
   }
- ]
+ ],
+ "a": [
+  {
+   "t": "Bá khí nhất",
+   "n": "Gia Bảo",
+   "e": "😎",
+   "d": "Siêu bá khí, bá khí nhất box."
+  },
+  {
+   "t": "Béo nhất",
+   "n": "Reo",
+   "e": "🍔",
+   "d": "Tròn trịa đáng yêu, được cả box cưng nhất."
+  },
+  {
+   "t": "Zà nhất",
+   "n": "Đăng Khánh",
+   "e": "🏆",
+   "d": "zà nhất box,anh của cả box"
+  }
+ ],
+ "v": "v3"
 }
