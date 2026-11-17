@@ -198,6 +198,7 @@ footer{text-align:center;padding:26px 20px 100px;background:var(--ink);color:var
 .aw h3{font-size:36px}.ad{color:#3b3150;font-weight:600;font-size:14px;margin-top:6px}
 .aw.add{background:transparent;border-style:dashed;box-shadow:none;rotate:0deg;display:grid;place-items:center;align-content:center;min-height:230px;color:var(--ink)}
 .aw.add::before{display:none}.aw.add span{font:800 76px/1 "Baloo 2",sans-serif;transition:transform .3s}.aw.add:hover span{transform:rotate(90deg) scale(1.25);color:var(--pink)}.aw.add small{font-weight:800;font-size:15px}
+.card .role.gst{background:var(--sky);color:var(--on)}.node.gk{background:var(--sky);color:var(--on)}
 </style>
 </head>
 <body>
@@ -210,7 +211,7 @@ footer{text-align:center;padding:26px 20px 100px;background:var(--ink);color:var
 
 <header class="hero" id="top">
   <span class="fs" style="top:6%;left:5%;--r:-14deg">🌈</span><span class="fs" style="top:12%;right:7%;--r:12deg;animation-delay:-1s">⭐</span><span class="fs" style="top:50%;left:3%;--r:10deg;animation-delay:-2s">💖</span><span class="fs" style="top:58%;right:4%;--r:-8deg;animation-delay:-3s">🦄</span><span class="fs" style="top:32%;left:13%;--r:6deg;animation-delay:-1.5s;font-size:30px">✨</span>
-  <span class="pill">PONY TOWN · MESSENGER · 18 THÀNH VIÊN</span>
+  <span class="pill">PONY TOWN · MESSENGER · 27 THÀNH VIÊN</span>
   <h1 class="nm">亗§𝓣.𝓴ෆ⋅˚ ୨୧Շгєภ๔เภﻮ‧₊</h1>
   <p class="sub">PONYTOWN BOX</p>
   <p class="type"><span id="tw"></span><i></i></p>
@@ -219,7 +220,7 @@ footer{text-align:center;padding:26px 20px 100px;background:var(--ink);color:var
     <a class="btn" href="#members">Gặp thành viên</a>
   </div>
   <div class="stats">
-    <div class="stat"><b data-n="18">0</b><span>thành viên</span></div>
+    <div class="stat"><b data-n="27">0</b><span>thành viên</span></div>
     <div class="stat"><b data-n="1">0</b><span>chủ box</span></div>
     <div class="stat"><b data-n="3">0</b><span>quản trị viên</span></div>
     <div class="stat"><b data-n="13">0</b><span>điều luật</span></div>
@@ -279,13 +280,14 @@ footer{text-align:center;padding:26px 20px 100px;background:var(--ink);color:var
 
 <section id="members"><div class="wrap">
   <h2 class="rv">Thành viên</h2>
-  <p class="lead rv">18 người, 18 chú pony. Bấm vào thẻ để xem chi tiết và tặng tim.</p>
+  <p class="lead rv">27 người, 27 chú pony. Bấm vào thẻ để xem chi tiết và tặng tim.</p>
   <input class="sq rv" id="sq" type="search" placeholder="Tìm thành viên…" aria-label="Tìm thành viên" autocomplete="off">
   <div class="chips rv" id="chips">
     <button class="chip" data-f="all" aria-pressed="true">Tất cả</button>
     <button class="chip" data-f="o" aria-pressed="false">Chủ box</button>
     <button class="chip" data-f="a" aria-pressed="false">Quản trị viên</button>
     <button class="chip" data-f="m" aria-pressed="false">Thành viên</button>
+    <button class="chip" data-f="g" aria-pressed="false">Khách</button>
   </div>
   <div class="grid" id="grid"></div>
   <p class="lead" id="ne" hidden style="margin-top:20px">Không tìm thấy pony nào có tên như vậy.</p>
@@ -391,6 +393,7 @@ footer{text-align:center;padding:26px 20px 100px;background:var(--ink);color:var
    <label>Tên thành viên<input id="anm" maxlength="40" autocomplete="off"></label>
    <label>Vai trò<select id="ak"><option value="m">Thành viên</option><option value="a">Quản trị viên</option><option value="o">Chủ box</option></select></label>
    <label>Giới thiệu ngắn<input id="ab" maxlength="160" autocomplete="off" placeholder="Không bắt buộc"></label>
+   <label style="display:flex;align-items:center;gap:10px"><input id="agk" type="checkbox" style="width:22px;height:22px"> Đánh dấu là khách của box</label>
    <button class="btn main" id="aadd" type="button">Thêm thành viên</button>
    <ul class="al" id="aml"></ul>
    <button class="btn" id="arst" type="button" style="margin-top:12px">Khôi phục danh sách gốc</button>
@@ -429,7 +432,7 @@ footer{text-align:center;padding:26px 20px 100px;background:var(--ink);color:var
 const LINK="https://m.me/j/qKxvA9azjZHm4xwG/?send_source=gc%3Acopy_invite_link_t";
 const M=[
 {n:"Thanh Mai",k:"o",t:"Chủ box",h:330,b:"Người lập ra box và giữ cho ngôi nhà này luôn ấm áp. Mọi ý tưởng vui đều bắt đầu từ đây."},
-{n:"Gia Bảo",k:"a",t:"Quản trị viên",h:200,b:"Quản trị viên đồng hành cùng chủ box, giữ nhịp và giữ không khí vui cho cả nhóm."},
+{n:"Gia Bảo",g:1,k:"a",t:"Quản trị viên",h:200,b:"Quản trị viên đồng hành cùng chủ box, giữ nhịp và giữ không khí vui cho cả nhóm."},
 {n:"Đăng Khánh",k:"a",t:"Quản trị viên",h:270,b:"Bô xe cấp cao của box. Quản trị viên hay xuất hiện đúng lúc, luôn sẵn sàng rủ cả box vào game."},
 {n:"AN Đt",k:"m",t:"Thành viên",h:0,b:"Thành viên bí ẩn với biệt danh @CanThanSauLung. Cẩn thận phía sau lưng nhé!"},
 {n:"Khang Lê",k:"m",t:"Thành viên",h:30,b:"Thành viên thân thiện, do Thanh Mai mời vào box. Tên tài khoản @khang.le.708926."},
@@ -443,22 +446,32 @@ const M=[
 {n:"Dương Thùy Chi",k:"m",t:"Thành viên",h:260,b:"Thành viên dịu dàng, góp thêm sắc màu cho gia đình pony."},
 {n:"Ngoc Anh",k:"m",t:"Thành viên",h:170,b:"Thành viên vui vẻ, luôn sẵn sàng rủ cả nhóm vào game."},
 {n:"Ngu Nhất Thế Giới",k:"m",t:"Thành viên",h:20,b:"Thành viên có biệt danh siêu ngầu, nghe tên là nhớ ngay."},
-{n:"Nhật Hoangg",k:"m",t:"Thành viên",h:90,b:"Thành viên mới của gia đình pony, hay xuất hiện lúc cả box đang vui."},
+{n:"Nhật Hoangg",g:1,k:"m",t:"Thành viên",h:90,b:"Thành viên mới của gia đình pony, hay xuất hiện lúc cả box đang vui."},
 {n:"Noliaa Aline",k:"m",t:"Thành viên",h:300,b:"Thành viên mới của gia đình pony, mang theo phong cách rất riêng."},
-{n:"Vii Tuog",k:"m",t:"Thành viên",h:230,b:"Thành viên mới của gia đình pony, nhỏ nhắn mà nhiều năng lượng."}];
+{n:"Vii Tuog",k:"m",t:"Thành viên",h:230,b:"Thành viên mới của gia đình pony, nhỏ nhắn mà nhiều năng lượng."},
+{n:"Cóhạtđậutrênđầu Timey Bel",k:"m",t:"Thành viên",h:150,b:"Thành viên có cái tên siêu độc đáo, nghe một lần là nhớ mãi."},
+{n:"Đào Trọng",k:"m",t:"Thành viên",h:10,b:"Thành viên mới của gia đình pony, mang thêm năng lượng cho box."},
+{n:"Khánh Ngọc Nguyễn",g:1,k:"m",t:"Thành viên",h:200,b:"Thành viên thân thiện, vừa là khách vừa là người nhà của box."},
+{n:"Kim Trâm",k:"m",t:"Thành viên",h:330,b:"Thành viên dịu dàng, góp thêm sắc màu cho gia đình pony."},
+{n:"Nguyễn Phương",k:"m",t:"Thành viên",h:120,b:"Thành viên mới của gia đình pony, luôn sẵn sàng vào game cùng cả nhóm."},
+{n:"Nqoc Ah",k:"m",t:"Thành viên",h:280,b:"Thành viên vui vẻ, mang theo nhiều tiếng cười cho box."},
+{n:"Phương Vy",k:"m",t:"Thành viên",h:320,b:"Thành viên đáng yêu, góp thêm một chú pony xinh cho cả nhà."},
+{n:"Trần Minh Tuấn",k:"m",t:"Thành viên",h:60,b:"Thành viên mới của gia đình pony, hay xuất hiện đúng lúc cả box đang vui."},
+{n:"Trịnh Ngọc Diệp",k:"m",t:"Thành viên",h:240,b:"Thành viên nhẹ nhàng, thêm một nét dịu dàng cho box."}];
 const M0=M.map(m=>({...m}));
+const DV="v3";
 const clx=s=>String(s||"").replace(/[<>&"]/g,"");
 const ma=x=>({t:clx(x.t).slice(0,40),n:clx(x.n).slice(0,40),e:[...String(x.e||"🏆")].slice(0,2).join(""),d:clx(x.d).slice(0,120)});
-const AW0=[{t:"Bá khí nhất",n:"Bảo",e:"😎",d:"Khí chất ngút trời, vừa xuất hiện là cả box nghiêng mình."},{t:"Béo nhất",n:"Reo",e:"🍔",d:"Tròn trịa đáng yêu, được cả box cưng nhất."}];
+const AW0=[{t:"Bá khí nhất",n:"Gia Bảo",e:"😎",d:"Siêu bá khí, bá khí nhất box."},{t:"Béo nhất",n:"Reo",e:"🍔",d:"Tròn trịa đáng yêu, được cả box cưng nhất."}];
 let AW=AW0.map(a=>({...a}));
-try{const p1=JSON.parse(localStorage.getItem("pmem")||"null");if(p1&&!Array.isArray(p1)&&Array.isArray(p1.a))AW=p1.a.map(ma).filter(a=>a.n&&a.t)}catch(e){}
-try{let sv0=JSON.parse(localStorage.getItem("pmem")||"null");sv0=sv0&&!Array.isArray(sv0)?sv0.m:null;if(Array.isArray(sv0)&&sv0.length)M.splice(0,M.length,...sv0.map(x=>({n:String(x.n).replace(/[<>&"]/g,""),k:["o","a","m"].includes(x.k)?x.k:"m",t:String(x.t).replace(/[<>&"]/g,""),h:+x.h||0,b:String(x.b||"").replace(/[<>&"]/g,"")})))}catch(e){}
+try{const p1=JSON.parse(localStorage.getItem("pmem")||"null");if(p1&&!Array.isArray(p1)&&p1.v===DV&&Array.isArray(p1.a))AW=p1.a.map(ma).filter(a=>a.n&&a.t)}catch(e){}
+try{let sv0=JSON.parse(localStorage.getItem("pmem")||"null");sv0=sv0&&!Array.isArray(sv0)&&sv0.v===DV?sv0.m:null;if(Array.isArray(sv0)&&sv0.length)M.splice(0,M.length,...sv0.map(x=>({n:String(x.n).replace(/[<>&"]/g,""),k:["o","a","m"].includes(x.k)?x.k:"m",t:String(x.t).replace(/[<>&"]/g,""),h:+x.h||0,g:x.g?1:0,b:String(x.b||"").replace(/[<>&"]/g,"")})))}catch(e){}
 {const d0=s=>document.querySelector(s),q0=document.querySelectorAll(".stat b"),A0=M.filter(m=>m.k=="a"),O0=M.find(m=>m.k=="o");q0[0].dataset.n=M.length;q0[1].dataset.n=M.filter(m=>m.k=="o").length;q0[2].dataset.n=A0.length;d0(".pill").textContent="PONY TOWN · MESSENGER · "+M.length+" THÀNH VIÊN";d0("#members .lead").textContent=M.length+" người, "+M.length+" chú pony. Bấm vào thẻ để xem chi tiết và tặng tim.";d0("#faq details:nth-of-type(3) p").textContent=(O0?O0.n+" là chủ box. ":"")+(A0.length?A0.map(m=>m.n).join(", ")+" là quản trị viên cùng chăm sóc nhóm.":"")}
 const $=s=>document.querySelector(s),sk=$("#sky"),cx=sk.getContext("2d");
 const RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
 const av=(m,c)=>`<div class="av" style="background:linear-gradient(135deg,hsl(${m.h} 85% 65%),hsl(${(m.h+60)%360} 80% 45%))">${m.n.trim()[0]}${m.k=="o"?"<em>👑</em>":m.k=="a"?"<em>🛡️</em>":""}</div>`;
 /* thẻ thành viên */
-$("#grid").innerHTML=M.map((m,i)=>`<div class="card rv ${m.k}" data-k="${m.k}" data-i="${i}" tabindex="0" role="button">${av(m)}<h3>${m.n}</h3><span class="role">${m.t}</span><p>${m.b.split(".")[0]}.</p></div>`).join("");
+$("#grid").innerHTML=M.map((m,i)=>`<div class="card rv ${m.k}" data-k="${m.k}" data-g="${m.g?1:0}" data-i="${i}" tabindex="0" role="button">${av(m)}<h3>${m.n}</h3><span class="role">${m.t}</span>${m.g?'<span class="role gst">🎟️ Khách</span>':""}<p>${m.b.split(".")[0]}.</p></div>`).join("");
 $("#tree").innerHTML=`<div class="node o" data-i="0" tabindex="0" role="button">👑 Thanh Mai<small>Chủ box</small></div><div class="link"></div><div class="lvl"><div class="node a" data-i="1" tabindex="0" role="button">🛡️ Gia Bảo<small>Quản trị viên</small></div><div class="node a" data-i="2" tabindex="0" role="button">🛡️ Đăng Khánh<small>Quản trị viên · bô xe cấp cao</small></div><div class="node a" data-i="8" tabindex="0" role="button">🛡️ Nguyễn Trân<small>Quản trị viên</small></div></div><div class="link"></div><div class="node" id="allm" tabindex="0" role="button">🐴 9 thành viên khác<small>Xem tất cả</small></div>`;
 document.addEventListener("click",e=>{const c=e.target.closest("[data-i]");if(c)open(+c.dataset.i);if(e.target.closest("#allm"))location.hash="members"});
 document.addEventListener("keydown",e=>{if(e.key=="Escape")close();if(e.key=="Enter"&&e.target.dataset&&e.target.dataset.i)open(+e.target.dataset.i);if(e.key=="Enter"&&e.target.id=="allm")location.hash="members"});
@@ -564,7 +577,7 @@ $("#cp").addEventListener("click",async()=>{try{await navigator.clipboard.writeT
 /* nâng cấp 3 */
 var CU=null;
 const nz=s=>s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/g,"d").toLowerCase();
-function fl2(){const f=(document.querySelector(".chip[aria-pressed=true]")||{dataset:{f:"all"}}).dataset.f,q=nz($("#sq").value.trim());let n=0;document.querySelectorAll(".card").forEach(c=>{const ok=(f=="all"||c.dataset.k==f)&&nz(M[+c.dataset.i].n).includes(q);c.classList.toggle("hide",!ok);if(ok)n++});$("#ne").hidden=n>0}
+function fl2(){const f=(document.querySelector(".chip[aria-pressed=true]")||{dataset:{f:"all"}}).dataset.f,q=nz($("#sq").value.trim());let n=0;document.querySelectorAll(".card").forEach(c=>{const ok=(f=="all"||(f=="g"?c.dataset.g=="1":c.dataset.k==f))&&nz(M[+c.dataset.i].n).includes(q);c.classList.toggle("hide",!ok);if(ok)n++});$("#ne").hidden=n>0}
 $("#sq").addEventListener("input",fl2);$("#chips").addEventListener("click",()=>setTimeout(fl2,0));
 addEventListener("pointermove",e=>{if(e.pointerType=="touch"||RM)return;const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;$(".hero h1").style.translate=`${x*-14}px ${y*-10}px`;document.querySelectorAll(".cld").forEach((c,i)=>c.style.marginTop=y*(20+i*12)+"px")});
 function mk(){const g=$("#mc").getContext("2d");g.clearRect(0,0,80,50);const c={b:$("#c1").value,m:$("#c2").value,t:$("#c2").value,h:$("#c3").value,e:"#1b1033",d:"#3a2f6b"};SP.forEach((r,j)=>[...r].forEach((ch,i)=>{if(ch==".")return;g.fillStyle=c[ch];g.fillRect(i*5,j*5,5,5)}))}
@@ -599,7 +612,7 @@ $("#wi").addEventListener("keydown",e=>{if(e.key=="Enter")$("#wa").click()});
 $("#wx").addEventListener("click",()=>{nts=[];ns();nr()});nr();
 
 /* bảng điều khiển */
-function rt(){const oi=M.findIndex(m=>m.k=="o"),as=[];M.forEach((m,i)=>{if(m.k=="a")as.push(i)});const nd=(i,c,e)=>`<div class="node ${c}" data-i="${i}" tabindex="0" role="button">${e} ${M[i].n}<small>${M[i].t}${M[i].n=="Đăng Khánh"?" · bô xe cấp cao":""}</small></div>`;const rest=M.length-(oi>=0?1:0)-as.length;$("#tree").innerHTML=(oi>=0?nd(oi,"o","👑")+'<div class="link"></div>':"")+(as.length?'<div class="lvl">'+as.map(i=>nd(i,"a","🛡️")).join("")+'</div><div class="link"></div>':"")+`<div class="node" id="allm" tabindex="0" role="button">🐴 ${rest} thành viên khác<small>Xem tất cả</small></div>`}rt();
+function rt(){const oi=M.findIndex(m=>m.k=="o"),as=[];M.forEach((m,i)=>{if(m.k=="a")as.push(i)});const nd=(i,c,e)=>`<div class="node ${c}" data-i="${i}" tabindex="0" role="button">${e} ${M[i].n}<small>${M[i].t}${M[i].n=="Đăng Khánh"?" · bô xe cấp cao":""}</small></div>`;const rest=M.length-(oi>=0?1:0)-as.length,gs=M.filter(m=>m.g).map(m=>m.n),gk=gs.length?'<div class="link"></div><div class="node gk" id="gkn" tabindex="0" role="button">🎟️ Khách<small>'+gs.join(", ")+"</small></div>":"";$("#tree").innerHTML=(oi>=0?nd(oi,"o","👑")+'<div class="link"></div>':"")+(as.length?'<div class="lvl">'+as.map(i=>nd(i,"a","🛡️")).join("")+'</div><div class="link"></div>':"")+`<div class="node" id="allm" tabindex="0" role="button">🐴 ${rest} thành viên khác<small>Xem tất cả</small></div>`+gk}rt();
 const CH="6f345c8948d277e685a21b88d7fe32c133538569599481558c5b8fefd1fb26fb",CF="f7d42b924";
 async function hx(s){try{if(window.crypto&&crypto.subtle){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}}catch(e){}let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imul(h,16777619)>>>0}return"f"+h.toString(16)}
 const adm=$("#adm"),ad=new Audio();let un=false,TK=[],ti=-1;
@@ -607,8 +620,8 @@ try{un=sessionStorage.getItem("pu")=="1"}catch(e){}
 const cl2=s=>String(s).replace(/[<>&"]/g,"");
 function idb(){return new Promise((res,rej)=>{const r=indexedDB.open("pbox",1);r.onupgradeneeded=()=>r.result.createObjectStore("trk",{keyPath:"id",autoIncrement:true});r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
 async function dbx(mode,fn){const d=await idb();return new Promise((res,rej)=>{const t=d.transaction("trk",mode);const q=fn(t.objectStore("trk"));t.oncomplete=()=>res(q&&q.result);t.onerror=()=>rej(t.error)})}
-function svm(){LT=Date.now();try{localStorage.setItem("pmem",JSON.stringify({t:LT,m:M,a:AW}))}catch(e){toast("Không lưu được trên trình duyệt này")}rf();toast("Đã tự động lưu");pushGH()}
-function apn(){const ul=$("#aml");ul.innerHTML=M.map((m,i)=>`<li><span>${m.k=="o"?"👑":m.k=="a"?"🛡️":"🦄"}</span><span></span><button class="btn" data-d="${i}" type="button">Xóa</button></li>`).join("");[...ul.children].forEach((li,i)=>li.children[1].textContent=M[i].n+" · "+M[i].t);const tl=$("#atl");tl.innerHTML=TK.length?TK.map((t,i)=>`<li><button class="btn" data-p="${i}" type="button" aria-label="Phát">▶</button><span></span><button class="btn" data-x="${i}" type="button" aria-label="Xóa bài">✕</button></li>`).join(""):"<li>Chưa có bài nào.</li>";if(TK.length)[...tl.children].forEach((li,i)=>li.children[1].textContent=TK[i].name);$("#mp").hidden=!TK.length}
+function svm(){LT=Date.now();try{localStorage.setItem("pmem",JSON.stringify({t:LT,m:M,a:AW,v:DV}))}catch(e){toast("Không lưu được trên trình duyệt này")}rf();toast("Đã tự động lưu");pushGH()}
+function apn(){const ul=$("#aml");ul.innerHTML=M.map((m,i)=>`<li><span>${m.k=="o"?"👑":m.k=="a"?"🛡️":"🦄"}</span><span></span><button class="btn" data-d="${i}" type="button">Xóa</button></li>`).join("");[...ul.children].forEach((li,i)=>li.children[1].textContent=M[i].n+" · "+M[i].t+(M[i].g?" · khách":""));const tl=$("#atl");tl.innerHTML=TK.length?TK.map((t,i)=>`<li><button class="btn" data-p="${i}" type="button" aria-label="Phát">▶</button><span></span><button class="btn" data-x="${i}" type="button" aria-label="Xóa bài">✕</button></li>`).join(""):"<li>Chưa có bài nào.</li>";if(TK.length)[...tl.children].forEach((li,i)=>li.children[1].textContent=TK[i].name);$("#mp").hidden=!TK.length}
 function ashow(){adm.classList.add("show");$("#alk").hidden=un;$("#apn").hidden=!un;apn();gfill();(un?$("#anm"):$("#ac")).focus();if(un&&pendT){const tb=document.querySelector('.atab[data-t="'+pendT+'"]');pendT=null;if(tb)tb.click()}}
 $("#gear").addEventListener("click",ashow);
 $("#ax").addEventListener("click",()=>adm.classList.remove("show"));
@@ -617,7 +630,7 @@ addEventListener("keydown",e=>{if(e.key=="Escape")adm.classList.remove("show")})
 $("#aok").addEventListener("click",async()=>{const v=await hx($("#ac").value.trim());if(v==CH||v==CF){un=true;try{sessionStorage.setItem("pu","1")}catch(e){}$("#ac").value="";burst(innerWidth/2,innerHeight/2,40);toast("Mở khóa thành công!");ashow()}else{toast("Sai mã rồi!");$("#ac").value=""}});
 $("#ac").addEventListener("keydown",e=>{if(e.key=="Enter")$("#aok").click()});
 document.querySelectorAll(".atab").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".atab").forEach(x=>x.setAttribute("aria-pressed",x==b));$("#atm").hidden=b.dataset.t!="m";$("#ats").hidden=b.dataset.t!="s";$("#atg").hidden=b.dataset.t!="g";$("#atb").hidden=b.dataset.t!="b"}));
-$("#aadd").addEventListener("click",()=>{const n=cl2($("#anm").value.trim()).slice(0,40);if(!n)return toast("Nhập tên thành viên");const k=$("#ak").value;M.push({n,k,t:{o:"Chủ box",a:"Quản trị viên",m:"Thành viên"}[k],h:Math.random()*360|0,b:cl2($("#ab").value.trim()).slice(0,160)||"Thành viên mới của gia đình pony."});$("#anm").value="";$("#ab").value="";svm()});
+$("#aadd").addEventListener("click",()=>{const n=cl2($("#anm").value.trim()).slice(0,40);if(!n)return toast("Nhập tên thành viên");const k=$("#ak").value;M.push({n,k,t:{o:"Chủ box",a:"Quản trị viên",m:"Thành viên"}[k],h:Math.random()*360|0,g:$("#agk").checked?1:0,b:cl2($("#ab").value.trim()).slice(0,160)||"Thành viên mới của gia đình pony."});$("#anm").value="";$("#ab").value="";$("#agk").checked=false;svm()});
 $("#aml").addEventListener("click",e=>{const b=e.target.closest("[data-d]");if(!b)return;if(b.dataset.c!="1"){b.dataset.c="1";b.textContent="Chắc chưa?";setTimeout(()=>{b.dataset.c="";b.textContent="Xóa"},2500);return}if(M.length<=1)return toast("Cần giữ lại ít nhất 1 thành viên");M.splice(+b.dataset.d,1);HT.splice(+b.dataset.d,1);svm()});
 $("#arst").addEventListener("click",()=>{M.splice(0,M.length,...M0.map(m=>({...m})));HT.length=0;AW=AW0.map(a=>({...a}));svm()});
 function pt(i){if(!TK.length)return;ti=(i+TK.length)%TK.length;ad.src=TK[ti].src;ad.play().then(()=>{$("#mpp").textContent="⏸";$("#mpt").textContent="🎵 "+TK[ti].name}).catch(()=>{toast("Không phát được bài này");$("#mpp").textContent="▶"})}
@@ -629,23 +642,23 @@ dbx("readonly",s=>s.getAll()).then(a=>{TK=(a||[]).map(r=>({...r,src:r.blob?URL.c
 try{if(sessionStorage.getItem("pp")=="1"){sessionStorage.removeItem("pp");if(un)ashow()}}catch(e){}
 
 /* cập nhật trực tiếp + tự đồng bộ */
-let LT=0;try{const p0=JSON.parse(localStorage.getItem("pmem")||"null");if(p0&&!Array.isArray(p0))LT=+p0.t||0}catch(e){}
+let LT=0;try{const p0=JSON.parse(localStorage.getItem("pmem")||"null");if(p0&&!Array.isArray(p0)&&p0.v===DV)LT=+p0.t||0}catch(e){}
 const tl=c=>{c.addEventListener("pointermove",e=>{if(e.pointerType=="touch")return;const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;c.style.transform=`rotateY(${(x-.5)*18}deg) rotateX(${(.5-y)*18}deg) scale(1.04)`});c.addEventListener("pointerleave",()=>c.style.transform="")};
-function rg(){$("#grid").innerHTML=M.map((m,i)=>`<div class="card rv on ${m.k}" data-k="${m.k}" data-i="${i}" tabindex="0" role="button">${av(m)}<h3>${m.n}</h3><span class="role">${m.t}</span><p>${m.b.split(".")[0]}.</p></div>`).join("");document.querySelectorAll(".card").forEach(tl);fl2()}
+function rg(){$("#grid").innerHTML=M.map((m,i)=>`<div class="card rv on ${m.k}" data-k="${m.k}" data-g="${m.g?1:0}" data-i="${i}" tabindex="0" role="button">${av(m)}<h3>${m.n}</h3><span class="role">${m.t}</span>${m.g?'<span class="role gst">🎟️ Khách</span>':""}<p>${m.b.split(".")[0]}.</p></div>`).join("");document.querySelectorAll(".card").forEach(tl);fl2()}
 function stx(){const d0=s=>document.querySelector(s),q0=document.querySelectorAll(".stat b"),A0=M.filter(m=>m.k=="a"),O0=M.find(m=>m.k=="o");[M.length,M.filter(m=>m.k=="o").length,A0.length].forEach((v,i)=>{const e=q0[i];e.dataset.n=v;if(e.textContent!=String(v)){e.textContent=v;e.classList.remove("bump");void e.offsetWidth;e.classList.add("bump")}});d0(".pill").textContent="PONY TOWN · MESSENGER · "+M.length+" THÀNH VIÊN";d0("#members .lead").textContent=M.length+" người, "+M.length+" chú pony. Bấm vào thẻ để xem chi tiết và tặng tim.";d0("#faq details:nth-of-type(3) p").textContent=(O0?O0.n+" là chủ box. ":"")+(A0.length?A0.map(m=>m.n).join(", ")+" là quản trị viên cùng chăm sóc nhóm.":"");L[1]="Chủ box: "+((O0||{}).n||"Thanh Mai");L[2]="Quản trị viên: "+(A0.map(m=>m.n).join(", ")||"đang cập nhật")}
 function rf(){stx();if(performance.now()<3300)setTimeout(stx,3300-performance.now());rg();rt();const s=M.map(m=>`<span>${m.n} ✦</span>`).join("");$("#mq").innerHTML=s+s;dI=Math.floor(Date.now()/864e5)%M.length;$("#dmn").textContent=M[dI].n;WN=M.length;WA=360/WN;if(!spinning){wrot=0;wc.style.transition="none";wc.style.transform="rotate(0deg)";void wc.offsetWidth;wc.style.transition="";$("#wr").textContent="Bấm QUAY để bắt đầu";$("#wo").hidden=true}dw();apn();ra()}
-const mm=x=>({n:String(x.n||"").replace(/[<>&"]/g,"").slice(0,40),k:["o","a","m"].includes(x.k)?x.k:"m",t:String(x.t||"").replace(/[<>&"]/g,"").slice(0,30),h:+x.h||0,b:String(x.b||"").replace(/[<>&"]/g,"").slice(0,160)});
+const mm=x=>({n:String(x.n||"").replace(/[<>&"]/g,"").slice(0,40),k:["o","a","m"].includes(x.k)?x.k:"m",t:String(x.t||"").replace(/[<>&"]/g,"").slice(0,30),h:+x.h||0,g:x.g?1:0,b:String(x.b||"").replace(/[<>&"]/g,"").slice(0,160)});
 function gcfg(){try{const c=JSON.parse(localStorage.getItem("pgh")||"null");return c&&c.repo&&c.token?c:null}catch(e){return null}}
 function gfill(){try{const c=JSON.parse(localStorage.getItem("pgh")||"null")||{};$("#ghr").value=c.repo||"";$("#ghb").value=c.branch||"main";$("#ghp").value=c.path||"members.json";$("#ghk").value=c.token||"";if(c.repo&&!$("#ghs").dataset.s)gst2("Đồng bộ đang bật cho "+c.repo+".")}catch(e){}}
 function gst2(t){const e=$("#ghs");e.textContent=t;e.dataset.s="1"}
 const b64=s=>{let x="";new TextEncoder().encode(s).forEach(v=>x+=String.fromCharCode(v));return btoa(x)};
 let ghB=false,ghQ=false;
-async function pushGH(){const c=gcfg();if(!c)return;if(ghB){ghQ=true;return}ghB=true;gst2("Đang đồng bộ…");try{const u="https://api.github.com/repos/"+c.repo+"/contents/"+c.path.split("/").map(encodeURIComponent).join("/"),H={Authorization:"Bearer "+c.token,Accept:"application/vnd.github+json"};let sha;const g=await fetch(u+"?ref="+encodeURIComponent(c.branch),{headers:H,cache:"no-store"});if(g.ok)sha=(await g.json()).sha;else if(g.status!=404)throw new Error("GitHub trả về mã "+g.status);const body={message:"Cập nhật danh sách thành viên",content:b64(JSON.stringify({t:LT||Date.now(),m:M,a:AW},null,1)),branch:c.branch};if(sha)body.sha=sha;const p=await fetch(u,{method:"PUT",headers:{...H,"Content-Type":"application/json"},body:JSON.stringify(body)});if(!p.ok)throw new Error("GitHub trả về mã "+p.status);gst2("Đã đồng bộ lúc "+new Date().toLocaleTimeString("vi-VN")+". Web công khai sẽ cập nhật sau khoảng 1 phút.")}catch(e){gst2("Lỗi đồng bộ: "+e.message)}ghB=false;if(ghQ){ghQ=false;pushGH()}}
-$("#ghv").addEventListener("click",()=>{const c={repo:$("#ghr").value.trim(),branch:$("#ghb").value.trim()||"main",path:$("#ghp").value.trim()||"members.json",token:$("#ghk").value.trim()};if(!/^[\w.-]+\/[\w.-]+$/.test(c.repo)||!c.token)return toast("Nhập đúng kho (chủ/tên-kho) và token");try{localStorage.setItem("pgh",JSON.stringify(c))}catch(e){return toast("Không lưu được cấu hình")}LT=Date.now();try{localStorage.setItem("pmem",JSON.stringify({t:LT,m:M,a:AW}))}catch(e){}pushGH()});
+async function pushGH(){const c=gcfg();if(!c)return;if(ghB){ghQ=true;return}ghB=true;gst2("Đang đồng bộ…");try{const u="https://api.github.com/repos/"+c.repo+"/contents/"+c.path.split("/").map(encodeURIComponent).join("/"),H={Authorization:"Bearer "+c.token,Accept:"application/vnd.github+json"};let sha;const g=await fetch(u+"?ref="+encodeURIComponent(c.branch),{headers:H,cache:"no-store"});if(g.ok)sha=(await g.json()).sha;else if(g.status!=404)throw new Error("GitHub trả về mã "+g.status);const body={message:"Cập nhật danh sách thành viên",content:b64(JSON.stringify({t:LT||Date.now(),m:M,a:AW,v:DV},null,1)),branch:c.branch};if(sha)body.sha=sha;const p=await fetch(u,{method:"PUT",headers:{...H,"Content-Type":"application/json"},body:JSON.stringify(body)});if(!p.ok)throw new Error("GitHub trả về mã "+p.status);gst2("Đã đồng bộ lúc "+new Date().toLocaleTimeString("vi-VN")+". Web công khai sẽ cập nhật sau khoảng 1 phút.")}catch(e){gst2("Lỗi đồng bộ: "+e.message)}ghB=false;if(ghQ){ghQ=false;pushGH()}}
+$("#ghv").addEventListener("click",()=>{const c={repo:$("#ghr").value.trim(),branch:$("#ghb").value.trim()||"main",path:$("#ghp").value.trim()||"members.json",token:$("#ghk").value.trim()};if(!/^[\w.-]+\/[\w.-]+$/.test(c.repo)||!c.token)return toast("Nhập đúng kho (chủ/tên-kho) và token");try{localStorage.setItem("pgh",JSON.stringify(c))}catch(e){return toast("Không lưu được cấu hình")}LT=Date.now();try{localStorage.setItem("pmem",JSON.stringify({t:LT,m:M,a:AW,v:DV}))}catch(e){}pushGH()});
 $("#ghx").addEventListener("click",()=>{try{localStorage.removeItem("pgh")}catch(e){}$("#ghk").value="";gst2("Đã tắt đồng bộ.")});
-$("#ghj").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(JSON.stringify({t:LT||Date.now(),m:M,a:AW},null,1));toast("Đã sao chép nội dung members.json")}catch(e){toast("Không sao chép được")}});
-async function lr(){try{const r=await fetch("members.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const j=await r.json();if(j&&Array.isArray(j.m)&&(+j.t||0)>LT){const a=j.m.map(mm).filter(x=>x.n);if(!a.length)return;M.splice(0,M.length,...a);LT=+j.t;if(Array.isArray(j.a))AW=j.a.map(ma).filter(a=>a.n&&a.t);try{localStorage.setItem("pmem",JSON.stringify({t:LT,m:M,a:AW}))}catch(e){}rf()}}catch(e){}}
-lr();setInterval(lr,30000);addEventListener("focus",lr);addEventListener("storage",e=>{if(e.key!="pmem"||!e.newValue)return;try{const p=JSON.parse(e.newValue);if(p&&Array.isArray(p.m)&&(+p.t||0)>LT){const a=p.m.map(mm).filter(x=>x.n);if(a.length){M.splice(0,M.length,...a);LT=+p.t;if(Array.isArray(p.a))AW=p.a.map(ma).filter(a=>a.n&&a.t);rf()}}}catch(err){}});document.addEventListener("visibilitychange",()=>{if(!document.hidden)lr()});
+$("#ghj").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(JSON.stringify({t:LT||Date.now(),m:M,a:AW,v:DV},null,1));toast("Đã sao chép nội dung members.json")}catch(e){toast("Không sao chép được")}});
+async function lr(){try{const r=await fetch("members.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const j=await r.json();if(j&&j.v===DV&&Array.isArray(j.m)&&(+j.t||0)>LT){const a=j.m.map(mm).filter(x=>x.n);if(!a.length)return;M.splice(0,M.length,...a);LT=+j.t;if(Array.isArray(j.a))AW=j.a.map(ma).filter(a=>a.n&&a.t);try{localStorage.setItem("pmem",JSON.stringify({t:LT,m:M,a:AW,v:DV}))}catch(e){}rf()}}catch(e){}}
+lr();setInterval(lr,30000);addEventListener("focus",lr);addEventListener("storage",e=>{if(e.key!="pmem"||!e.newValue)return;try{const p=JSON.parse(e.newValue);if(p&&p.v===DV&&Array.isArray(p.m)&&(+p.t||0)>LT){const a=p.m.map(mm).filter(x=>x.n);if(a.length){M.splice(0,M.length,...a);LT=+p.t;if(Array.isArray(p.a))AW=p.a.map(ma).filter(a=>a.n&&a.t);rf()}}}catch(err){}});document.addEventListener("visibilitychange",()=>{if(!document.hidden)lr()});
 
 /* những cái nhất */
 var pendT=null;
@@ -665,6 +678,8 @@ function mtr(){if(MT.length<4&&Math.random()<.009){const m=Math.random()<.25,dir
 for(const s of MT){s.x+=s.vx;s.y+=s.vy;s.l++;const n=s.msg?60:16,gx=s.x-s.vx*n,gy=s.y-s.vy*n,g=cx.createLinearGradient(s.x,s.y,gx,gy);g.addColorStop(0,s.c);g.addColorStop(1,"rgba(255,255,255,0)");cx.save();cx.strokeStyle=g;cx.lineWidth=s.msg?3:2.5;cx.lineCap="round";cx.beginPath();cx.moveTo(s.x,s.y);cx.lineTo(gx,gy);cx.stroke();cx.shadowColor=s.c;cx.shadowBlur=14;cx.fillStyle="#fff";cx.beginPath();cx.arc(s.x,s.y,3.5,0,7);cx.fill();cx.strokeStyle=s.c;cx.lineWidth=1.5;cx.stroke();cx.restore();
 if(s.msg){cx.save();cx.globalAlpha=Math.max(0,Math.min(1,s.l/40,(W-s.x)/160));cx.font="700 16px 'Be Vietnam Pro',sans-serif";cx.textAlign="center";cx.lineWidth=5;cx.strokeStyle="rgba(255,255,255,.92)";cx.strokeText(s.msg,s.x,s.y-16);cx.fillStyle="#17121f";cx.fillText(s.msg,s.x,s.y-16);cx.restore()}}
 MT=MT.filter(s=>s.x>-120&&s.x<W+120&&s.y<H+80)}
+
+document.addEventListener("click",e=>{if(e.target.closest("#gkn")){const c=document.querySelector('.chip[data-f="g"]');if(c)c.click();location.hash="members"}});
 </script>
 </body>
 </html>
