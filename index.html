@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffd23f" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#17121f" media="(prefers-color-scheme: dark)">
 <title>亗§𝓣.𝓴ෆ⋅˚ ୨୧Շгєภ๔เภﻮ‧₊ · Box Ponytown</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -219,9 +220,21 @@ footer{text-align:center;padding:26px 20px 100px;background:var(--ink);color:var
 .dcv{width:min(86vw,320px);aspect-ratio:1;border:3px solid var(--bd);border-radius:12px;background:repeating-conic-gradient(var(--bg2) 0 25%,var(--bg) 0 50%) 0 0/12.5% 12.5%;touch-action:none;cursor:crosshair}
 .dpal{justify-content:center;flex-wrap:wrap;margin:14px 0}.dpal .der{background:#fff;font-size:16px}
 .pnm{font:800 clamp(30px,6vw,52px)/1.2 "Baloo 2",sans-serif;overflow-wrap:anywhere}
+
+/* ===== nâng cấp: craft + vui hơn ===== */
+h1,h2,h3{text-wrap:balance}.lead,.bx p,.st p,.card p{text-wrap:pretty}
+.stat b,.pg,.qh,.gh,#rc,#wtn,#wsn,#mvn{font-variant-numeric:tabular-nums}
+a,button,summary,.card,.node,.aw,.rl li{touch-action:manipulation;-webkit-tap-highlight-color:color-mix(in srgb,var(--sun) 50%,transparent)}
+.nv a,.chip,.gtab{transition-property:background-color,border-color,color,translate}
+.sheet,.ap{overscroll-behavior:contain}
+.skip{position:fixed;left:12px;top:calc(12px + env(safe-area-inset-top,0px));z-index:120;padding:10px 18px;background:var(--sun);color:var(--on);font-weight:800;border:3px solid var(--bd);border-radius:99px;box-shadow:4px 4px 0 var(--sh);text-decoration:none;translate:0 -250%}.skip:focus-visible{translate:0 0}
+.spk{position:fixed;left:0;top:0;z-index:80;pointer-events:none;font-size:18px;line-height:1;opacity:0;will-change:transform}
+.cmb{position:fixed;left:0;top:0;z-index:85;pointer-events:none;font:800 28px "Baloo 2",sans-serif;color:var(--on);background:var(--sun);border:3px solid var(--bd);border-radius:99px;padding:2px 14px;box-shadow:3px 3px 0 var(--sh);opacity:0;white-space:nowrap}
+@media (pointer:coarse){.nv a{display:inline-flex;align-items:center}.nv a,.chip,.gtab,.fab button{min-height:44px}.fab button{min-width:44px}.sw button,#mp button{width:44px;height:44px}}
 </style>
 </head>
 <body>
+<a class="skip" href="#about">Bỏ qua điều hướng</a>
 <canvas id="sky" aria-hidden="true"></canvas>
 <div id="bar"></div><div id="glow" aria-hidden="true"></div>
 <div id="toast" role="status"></div>
@@ -752,6 +765,46 @@ $("#gtb").innerHTML=Object.entries(GL).map(([k,v],i)=>`<button class="gtab" data
 const gsh=k=>{gstop();P.onclick=null;document.querySelectorAll(".gtab").forEach(b=>b.setAttribute("aria-selected",b.dataset.g==k));P.innerHTML="";G[k]()};
 $("#gtb").addEventListener("click",e=>{const b=e.target.closest(".gtab");if(b)gsh(b.dataset.g)});
 gsh("who");so.observe(document.getElementById("play"));
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+/* nâng cấp GSAP: sparkle trail, parallax, nam châm, marquee theo tốc độ cuộn, thám hiểm, combo */
+(()=>{
+if(!window.gsap||RM)return;
+const U=gsap.utils,fine=matchMedia("(hover:hover) and (pointer:fine)").matches,Q=s=>U.toArray(s),
+mk=c=>{const e=document.createElement("span");e.className=c;e.setAttribute("aria-hidden","true");document.body.appendChild(e);return e},
+ready=f=>document.readyState=="complete"?f():addEventListener("load",f);
+const hero=$("#top");
+/* 1. vệt sao theo chuột */
+if(fine){const P=Array.from({length:16},()=>mk("spk")),wr=U.wrap(0,P.length),IC=["✨","⭐","💖","🌸","🦄"];let i=0,lx=0,ly=0;
+addEventListener("pointermove",e=>{if(e.pointerType!="mouse"||Math.hypot(e.clientX-lx,e.clientY-ly)<34)return;lx=e.clientX;ly=e.clientY;const s=P[i=wr(i+1)];s.textContent=U.random(IC);gsap.killTweensOf(s);
+gsap.fromTo(s,{x:lx-9,y:ly-9,opacity:1,scale:U.random(.7,1.3),rotation:U.random(-40,40)},{x:"+="+U.random(-26,26),y:"+="+U.random(20,56),opacity:0,scale:0,rotation:"+="+U.random(-90,90),duration:U.random(.7,1.1),ease:"power2.out"})},{passive:true})}
+/* 2. parallax đa tầng ở hero + chữ tên nghiêng 3D */
+const fs=Q(".hero>.fs"),h1=$(".hero h1.nm");
+if(fine&&hero&&h1){const dp=fs.map(()=>U.random(.4,1.2,.1)),qx=fs.map(e=>gsap.quickTo(e,"x",{duration:.8,ease:"power3"})),qy=fs.map(e=>gsap.quickTo(e,"y",{duration:.8,ease:"power3"})),
+ry=gsap.quickTo(h1,"rotationY",{duration:.6,ease:"power3"}),rx=gsap.quickTo(h1,"rotationX",{duration:.6,ease:"power3"}),m=U.pipe(U.clamp(0,1),U.mapRange(0,1,-1,1));
+gsap.set(h1,{transformPerspective:900});
+addEventListener("pointermove",e=>{if(scrollY>innerHeight)return;const a=m(e.clientX/innerWidth),b=m(e.clientY/innerHeight);fs.forEach((_,k)=>{qx[k](a*-38*dp[k]);qy[k](b*-26*dp[k])});ry(a*9);rx(b*-7)},{passive:true})}
+/* 3. nút nam châm */
+if(fine)Q(".btn.main,.go,.dm,.cta .btn").forEach(b=>{const x=gsap.quickTo(b,"x",{duration:.5,ease:"elastic.out(1,.45)"}),y=gsap.quickTo(b,"y",{duration:.5,ease:"elastic.out(1,.45)"}),c=U.clamp(-10,10);
+b.addEventListener("pointermove",e=>{const r=b.getBoundingClientRect();x(c((e.clientX-r.left-r.width/2)*.25));y(c((e.clientY-r.top-r.height/2)*.25))});
+b.addEventListener("pointerleave",()=>{x(0);y(0)})});
+/* 4. băng chữ chạy nhanh theo tốc độ cuộn */
+ready(()=>{const A=Q(".mq div").flatMap(d=>d.getAnimations());if(!A.length)return;const sp=U.pipe(U.clamp(0,70),U.mapRange(0,70,1,7));let last=scrollY,v=0,r=1;
+gsap.ticker.add(()=>{const d=Math.abs(scrollY-last);last=scrollY;v+=(d-v)*.2;r+=(sp(v)-r)*.12;A.forEach(a=>a.playbackRate=r)})});
+/* 5. thử thách thám hiểm */
+const S=Q("main section[id]"),seen=new Set(),ms=[.25,.5,.75,1].map(f=>Math.ceil(S.length*f)),
+T=["🧭 Khởi động tốt, bạn đã ghé 1/4 box!","🗺️ Nửa đường rồi, khám phá tiếp nhé!","⛰️ Gần tới đích rồi, còn một chút nữa!","🏆 Nhà thám hiểm! Bạn đã ghé mọi ngóc ngách của box!"],
+io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting||seen.has(e.target.id))return;seen.add(e.target.id);const k=ms.indexOf(seen.size);if(k>-1){toast(T[k]);if(k==3)burst(innerWidth/2,innerHeight/2,60)}}),{threshold:.35});
+S.forEach(s=>io.observe(s));
+/* 6. combo bấm liên tục ở hero */
+if(hero){const cb=mk("cmb"),cs=U.pipe(U.clamp(2,20),U.mapRange(2,20,1,2.2));let n=0,t;
+hero.addEventListener("click",e=>{if(e.target.closest("a,button"))return;n++;clearTimeout(t);t=setTimeout(()=>n=0,700);if(n<2)return;cb.textContent="x"+n+(n>=10?" 🔥":"");gsap.killTweensOf(cb);
+gsap.fromTo(cb,{x:e.clientX-30,y:e.clientY-56,opacity:1,scale:cs(n)},{y:"-=60",opacity:0,duration:.9,ease:"power2.out"});if(n%10==0){burst(e.clientX,e.clientY,40);toast("🔥 Combo x"+n+"!")}})}
+/* 7. bí mật: bấm logo 5 lần để mưa pony */
+const br=$(".nv .brand");let bc=0,bt;
+br.addEventListener("click",()=>{gsap.fromTo(br,{rotation:-12},{rotation:0,duration:.8,ease:"elastic.out(1,.3)"});clearTimeout(bt);bt=setTimeout(()=>bc=0,1500);if(++bc>=5){bc=0;toast("🌈 Bí mật mở khoá: mưa pony!");$("#rain").click()}});
 })();
 </script>
 </body>
