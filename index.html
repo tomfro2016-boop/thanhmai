@@ -219,6 +219,7 @@ footer{text-align:center;padding:26px 20px 100px;background:var(--ink);color:var
 .dcv{width:min(86vw,320px);aspect-ratio:1;border:3px solid var(--bd);border-radius:12px;background:repeating-conic-gradient(var(--bg2) 0 25%,var(--bg) 0 50%) 0 0/12.5% 12.5%;touch-action:none;cursor:crosshair}
 .dpal{justify-content:center;flex-wrap:wrap;margin:14px 0}.dpal .der{background:#fff;font-size:16px}
 .pnm{font:800 clamp(30px,6vw,52px)/1.2 "Baloo 2",sans-serif;overflow-wrap:anywhere}
+.card .av{transform:none;animation-name:avb;margin-bottom:12px}.card h3{transform:none}@keyframes avb{50%{translate:0 -4px}}
 </style>
 </head>
 <body>
@@ -231,7 +232,7 @@ footer{text-align:center;padding:26px 20px 100px;background:var(--ink);color:var
 
 <header class="hero" id="top">
   <span class="fs" style="top:6%;left:5%;--r:-14deg">🌈</span><span class="fs" style="top:12%;right:7%;--r:12deg;animation-delay:-1s">⭐</span><span class="fs" style="top:50%;left:3%;--r:10deg;animation-delay:-2s">💖</span><span class="fs" style="top:58%;right:4%;--r:-8deg;animation-delay:-3s">🦄</span><span class="fs" style="top:32%;left:13%;--r:6deg;animation-delay:-1.5s;font-size:30px">✨</span>
-  <span class="pill">PONY TOWN · MESSENGER · 27 THÀNH VIÊN</span>
+  <span class="pill">PONY TOWN · MESSENGER · 39 THÀNH VIÊN</span>
   <h1 class="nm">亗§𝓣.𝓴ෆ⋅˚ ୨୧Շгєภ๔เภﻮ‧₊</h1>
   <p class="sub">PONYTOWN BOX</p>
   <p class="type"><span id="tw"></span><i></i></p>
@@ -241,7 +242,7 @@ footer{text-align:center;padding:26px 20px 100px;background:var(--ink);color:var
     <a class="btn" href="https://forms.gle/EmVz3uMDNkCNXSXn9" target="_blank" rel="noopener">Đăng ký vào box</a>
   </div>
   <div class="stats">
-    <div class="stat"><b data-n="27">0</b><span>thành viên</span></div>
+    <div class="stat"><b data-n="39">0</b><span>thành viên</span></div>
     <div class="stat"><b data-n="1">0</b><span>chủ box</span></div>
     <div class="stat"><b data-n="3">0</b><span>quản trị viên</span></div>
     <div class="stat"><b data-n="13">0</b><span>điều luật</span></div>
@@ -301,7 +302,7 @@ footer{text-align:center;padding:26px 20px 100px;background:var(--ink);color:var
 
 <section id="members"><div class="wrap">
   <h2 class="rv">Thành viên</h2>
-  <p class="lead rv">27 người, 27 chú pony. Bấm vào thẻ để xem chi tiết và tặng tim.</p>
+  <p class="lead rv">39 người, 39 chú pony. Bấm vào thẻ để xem chi tiết và tặng tim.</p>
   <input class="sq rv" id="sq" type="search" placeholder="Tìm thành viên…" aria-label="Tìm thành viên" autocomplete="off">
   <div class="chips rv" id="chips">
     <button class="chip" data-f="all" aria-pressed="true">Tất cả</button>
@@ -487,15 +488,27 @@ const M=[
 {n:"Nqoc Ah",k:"m",t:"Thành viên",h:280,b:"Thành viên vui vẻ, mang theo nhiều tiếng cười cho box."},
 {n:"Phương Vy",k:"m",t:"Thành viên",h:320,b:"Thành viên đáng yêu, góp thêm một chú pony xinh cho cả nhà."},
 {n:"Trần Minh Tuấn",k:"m",t:"Thành viên",h:60,b:"Thành viên mới của gia đình pony, hay xuất hiện đúng lúc cả box đang vui."},
-{n:"Trịnh Ngọc Diệp",k:"m",t:"Thành viên",h:240,b:"Thành viên nhẹ nhàng, thêm một nét dịu dàng cho box."}];
+{n:"Trịnh Ngọc Diệp",k:"m",t:"Thành viên",h:240,b:"Thành viên nhẹ nhàng, thêm một nét dịu dàng cho box."},
+{n:"Fenya Stephanie",k:"m",t:"Thành viên",h:310,b:"Thành viên mới của gia đình pony, mang theo phong cách rất riêng."},
+{n:"Khang Liang",k:"m",t:"Thành viên",h:190,b:"Thành viên mới của gia đình pony, hay xuất hiện đúng lúc cả box đang vui."},
+{n:"Luminous Here",k:"m",t:"Thành viên",h:270,b:"Thành viên có cái tên lung linh, nghe như một vì sao nhỏ."},
+{n:"Nghịch Bi Tài Xế",k:"m",t:"Thành viên",h:40,b:"Thành viên có biệt danh siêu vui, nghe tên là muốn rủ đi chơi."},
+{n:"Nguyễn Thị Thanh Tuyền",k:"m",t:"Thành viên",h:340,b:"Thành viên dịu dàng, góp thêm sắc màu cho gia đình pony."},
+{n:"Nh Vy",k:"m",t:"Thành viên",h:130,b:"Thành viên đáng yêu, luôn mang theo nụ cười vào box."},
+{n:"Phương Thảo",k:"m",t:"Thành viên",h:100,b:"Thành viên vui vẻ, luôn sẵn sàng rủ cả nhóm vào game."},
+{n:"thanh tr",k:"m",t:"Thành viên",h:210,b:"Thành viên mới của gia đình pony, nhỏ nhắn mà nhiều năng lượng."},
+{n:"thảo nguyên",k:"m",t:"Thành viên",h:160,b:"Thành viên có cái tên rộng như một thảo nguyên xanh."},
+{n:"thảo như",k:"m",t:"Thành viên",h:290,b:"Thành viên nhẹ nhàng, thêm một nét dịu dàng cho box."},
+{n:"thinn cimm",k:"m",t:"Thành viên",h:70,b:"Thành viên mới của gia đình pony, mang thêm nhiều tiếng cười cho box."},
+{n:"trần chiều",k:"m",t:"Thành viên",h:250,b:"Thành viên mới của gia đình pony, hay xuất hiện lúc cả box đang vui."}];
 const M0=M.map(m=>({...m}));
-const DV="v3";
+const DV="v4",OKV=["v3","v4"],NEW4=M0.slice(-12),mig=(a,v)=>v===DV?a:[...a,...NEW4.filter(n=>!a.some(x=>x.n==n.n)).map(x=>({...x}))];
 const clx=s=>String(s||"").replace(/[<>&"]/g,"");
 const ma=x=>({t:clx(x.t).slice(0,40),n:clx(x.n).slice(0,40),e:[...String(x.e||"🏆")].slice(0,2).join(""),d:clx(x.d).slice(0,120)});
 const AW0=[{t:"Bá khí nhất",n:"Gia Bảo",e:"😎",d:"Siêu bá khí, bá khí nhất box."},{t:"Béo nhất",n:"Reo",e:"🍔",d:"Tròn trịa đáng yêu, được cả box cưng nhất."}];
 let AW=AW0.map(a=>({...a}));
-try{const p1=JSON.parse(localStorage.getItem("pmem")||"null");if(p1&&!Array.isArray(p1)&&p1.v===DV&&Array.isArray(p1.a))AW=p1.a.map(ma).filter(a=>a.n&&a.t)}catch(e){}
-try{let sv0=JSON.parse(localStorage.getItem("pmem")||"null");sv0=sv0&&!Array.isArray(sv0)&&sv0.v===DV?sv0.m:null;if(Array.isArray(sv0)&&sv0.length)M.splice(0,M.length,...sv0.map(x=>({n:String(x.n).replace(/[<>&"]/g,""),k:["o","a","m"].includes(x.k)?x.k:"m",t:String(x.t).replace(/[<>&"]/g,""),h:+x.h||0,g:x.g?1:0,b:String(x.b||"").replace(/[<>&"]/g,"")})))}catch(e){}
+try{const p1=JSON.parse(localStorage.getItem("pmem")||"null");if(p1&&!Array.isArray(p1)&&OKV.includes(p1.v)&&Array.isArray(p1.a))AW=p1.a.map(ma).filter(a=>a.n&&a.t)}catch(e){}
+try{let sv0=JSON.parse(localStorage.getItem("pmem")||"null");sv0=sv0&&!Array.isArray(sv0)&&OKV.includes(sv0.v)&&Array.isArray(sv0.m)?mig(sv0.m,sv0.v):null;if(Array.isArray(sv0)&&sv0.length)M.splice(0,M.length,...sv0.map(x=>({n:String(x.n).replace(/[<>&"]/g,""),k:["o","a","m"].includes(x.k)?x.k:"m",t:String(x.t).replace(/[<>&"]/g,""),h:+x.h||0,g:x.g?1:0,b:String(x.b||"").replace(/[<>&"]/g,"")})))}catch(e){}
 {const d0=s=>document.querySelector(s),q0=document.querySelectorAll(".stat b"),A0=M.filter(m=>m.k=="a"),O0=M.find(m=>m.k=="o");q0[0].dataset.n=M.length;q0[1].dataset.n=M.filter(m=>m.k=="o").length;q0[2].dataset.n=A0.length;d0(".pill").textContent="PONY TOWN · MESSENGER · "+M.length+" THÀNH VIÊN";d0("#members .lead").textContent=M.length+" người, "+M.length+" chú pony. Bấm vào thẻ để xem chi tiết và tặng tim.";d0("#faq details:nth-of-type(3) p").textContent=(O0?O0.n+" là chủ box. ":"")+(A0.length?A0.map(m=>m.n).join(", ")+" là quản trị viên cùng chăm sóc nhóm.":"")}
 const $=s=>document.querySelector(s),sk=$("#sky"),cx=sk.getContext("2d");
 const RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
@@ -515,7 +528,7 @@ document.querySelectorAll(".card").forEach(c=>{c.addEventListener("pointermove",
 /* hiện dần + đếm số */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll(".rv").forEach(x=>io.observe(x));
-document.querySelectorAll("[data-n]").forEach(el=>{let v=0;const t=setInterval(()=>{const n=+el.dataset.n;if(v>=n){el.textContent=n;clearInterval(t);return}el.textContent=++v},RM?1:140)});
+document.querySelectorAll("[data-n]").forEach(el=>{let v=0;const t=setInterval(()=>{const n=+el.dataset.n;if(v>=n){el.textContent=n;clearInterval(t);return}el.textContent=++v},RM?1:Math.max(25,Math.min(140,2500/(+el.dataset.n||1))))});
 /* chữ chạy */
 const L=["Nơi những chú pony gặp nhau","Chủ box: "+((M.find(m=>m.k=="o")||{}).n||"Thanh Mai"),"Quản trị viên: "+(M.filter(m=>m.k=="a").map(m=>m.n).join(", ")||"đang cập nhật"),"Vào chơi, vào cười, vào làm bạn"];let li=0,ci=0,del=false;
 (function ty(){const s=L[li],tw=$("#tw");if(RM){tw.textContent=s;return}tw.textContent=s.slice(0,ci);if(!del&&ci==s.length){del=true;return setTimeout(ty,1500)}if(del&&ci==0){del=false;li=(li+1)%L.length}ci+=del?-1:1;setTimeout(ty,del?25:60)})();
@@ -672,7 +685,7 @@ dbx("readonly",s=>s.getAll()).then(a=>{TK=(a||[]).map(r=>({...r,src:r.blob?URL.c
 try{if(sessionStorage.getItem("pp")=="1"){sessionStorage.removeItem("pp");if(un)ashow()}}catch(e){}
 
 /* cập nhật trực tiếp + tự đồng bộ */
-let LT=0;try{const p0=JSON.parse(localStorage.getItem("pmem")||"null");if(p0&&!Array.isArray(p0)&&p0.v===DV)LT=+p0.t||0}catch(e){}
+let LT=0;try{const p0=JSON.parse(localStorage.getItem("pmem")||"null");if(p0&&!Array.isArray(p0)&&OKV.includes(p0.v))LT=+p0.t||0}catch(e){}
 const tl=c=>{c.addEventListener("pointermove",e=>{if(e.pointerType=="touch")return;const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;c.style.transform=`rotateY(${(x-.5)*18}deg) rotateX(${(.5-y)*18}deg) scale(1.04)`});c.addEventListener("pointerleave",()=>c.style.transform="")};
 function rg(){$("#grid").innerHTML=M.map((m,i)=>`<div class="card rv on ${m.k}" data-k="${m.k}" data-g="${m.g?1:0}" data-i="${i}" tabindex="0" role="button">${av(m)}<h3>${m.n}</h3><span class="role">${m.t}</span>${m.g?'<span class="role gst">🎟️ Khách</span>':""}<p>${m.b.split(".")[0]}.</p></div>`).join("");document.querySelectorAll(".card").forEach(tl);fl2()}
 function stx(){const d0=s=>document.querySelector(s),q0=document.querySelectorAll(".stat b"),A0=M.filter(m=>m.k=="a"),O0=M.find(m=>m.k=="o");[M.length,M.filter(m=>m.k=="o").length,A0.length].forEach((v,i)=>{const e=q0[i];e.dataset.n=v;if(e.textContent!=String(v)){e.textContent=v;e.classList.remove("bump");void e.offsetWidth;e.classList.add("bump")}});d0(".pill").textContent="PONY TOWN · MESSENGER · "+M.length+" THÀNH VIÊN";d0("#members .lead").textContent=M.length+" người, "+M.length+" chú pony. Bấm vào thẻ để xem chi tiết và tặng tim.";d0("#faq details:nth-of-type(3) p").textContent=(O0?O0.n+" là chủ box. ":"")+(A0.length?A0.map(m=>m.n).join(", ")+" là quản trị viên cùng chăm sóc nhóm.":"");L[1]="Chủ box: "+((O0||{}).n||"Thanh Mai");L[2]="Quản trị viên: "+(A0.map(m=>m.n).join(", ")||"đang cập nhật")}
@@ -687,8 +700,8 @@ async function pushGH(){const c=gcfg();if(!c)return;if(ghB){ghQ=true;return}ghB=
 $("#ghv").addEventListener("click",()=>{const c={repo:$("#ghr").value.trim(),branch:$("#ghb").value.trim()||"main",path:$("#ghp").value.trim()||"members.json",token:$("#ghk").value.trim()};if(!/^[\w.-]+\/[\w.-]+$/.test(c.repo)||!c.token)return toast("Nhập đúng kho (chủ/tên-kho) và token");try{localStorage.setItem("pgh",JSON.stringify(c))}catch(e){return toast("Không lưu được cấu hình")}LT=Date.now();try{localStorage.setItem("pmem",JSON.stringify({t:LT,m:M.filter(x=>!x.s),a:AW,v:DV}))}catch(e){}pushGH()});
 $("#ghx").addEventListener("click",()=>{try{localStorage.removeItem("pgh")}catch(e){}$("#ghk").value="";gst2("Đã tắt đồng bộ.")});
 $("#ghj").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(JSON.stringify({t:LT||Date.now(),m:M.filter(x=>!x.s),a:AW,v:DV},null,1));toast("Đã sao chép nội dung members.json")}catch(e){toast("Không sao chép được")}});
-async function lr(){try{const r=await fetch("members.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const j=await r.json();if(j&&j.v===DV&&Array.isArray(j.m)&&(+j.t||0)>LT){const a=j.m.map(mm).filter(x=>x.n);if(!a.length)return;M.splice(0,M.length,...a);LT=+j.t;if(Array.isArray(j.a))AW=j.a.map(ma).filter(a=>a.n&&a.t);try{localStorage.setItem("pmem",JSON.stringify({t:LT,m:M.filter(x=>!x.s),a:AW,v:DV}))}catch(e){}rf()}}catch(e){}}
-lr();setInterval(lr,30000);addEventListener("focus",lr);addEventListener("storage",e=>{if(e.key!="pmem"||!e.newValue)return;try{const p=JSON.parse(e.newValue);if(p&&p.v===DV&&Array.isArray(p.m)&&(+p.t||0)>LT){const a=p.m.map(mm).filter(x=>x.n);if(a.length){M.splice(0,M.length,...a);LT=+p.t;if(Array.isArray(p.a))AW=p.a.map(ma).filter(a=>a.n&&a.t);rf()}}}catch(err){}});document.addEventListener("visibilitychange",()=>{if(!document.hidden)lr()});
+async function lr(){try{const r=await fetch("members.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const j=await r.json();if(j&&OKV.includes(j.v)&&Array.isArray(j.m)&&(+j.t||0)>LT){const a=mig(j.m.map(mm).filter(x=>x.n),j.v);if(!a.length)return;M.splice(0,M.length,...a);LT=+j.t;if(Array.isArray(j.a))AW=j.a.map(ma).filter(a=>a.n&&a.t);try{localStorage.setItem("pmem",JSON.stringify({t:LT,m:M.filter(x=>!x.s),a:AW,v:DV}))}catch(e){}rf()}}catch(e){}}
+lr();setInterval(lr,30000);addEventListener("focus",lr);addEventListener("storage",e=>{if(e.key!="pmem"||!e.newValue)return;try{const p=JSON.parse(e.newValue);if(p&&OKV.includes(p.v)&&Array.isArray(p.m)&&(+p.t||0)>LT){const a=mig(p.m.map(mm).filter(x=>x.n),p.v);if(a.length){M.splice(0,M.length,...a);LT=+p.t;if(Array.isArray(p.a))AW=p.a.map(ma).filter(a=>a.n&&a.t);rf()}}}catch(err){}});document.addEventListener("visibilitychange",()=>{if(!document.hidden)lr()});
 
 /* những cái nhất */
 var pendT=null;
