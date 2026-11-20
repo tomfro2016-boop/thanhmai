@@ -1,19 +1,20 @@
 {
- "t": 1794915834038,
+ "t": 1795138925858,
  "m": [
   {
    "n": "Thanh Mai",
    "k": "o",
    "t": "Chủ box",
    "h": 330,
+   "g": 0,
    "b": "Người lập ra box và giữ cho ngôi nhà này luôn ấm áp. Mọi ý tưởng vui đều bắt đầu từ đây."
   },
   {
    "n": "Gia Bảo",
-   "g": 1,
    "k": "a",
    "t": "Quản trị viên",
    "h": 200,
+   "g": 1,
    "b": "Quản trị viên đồng hành cùng chủ box, giữ nhịp và giữ không khí vui cho cả nhóm."
   },
   {
@@ -21,6 +22,7 @@
    "k": "a",
    "t": "Quản trị viên",
    "h": 270,
+   "g": 0,
    "b": "Bô xe cấp cao của box. Quản trị viên hay xuất hiện đúng lúc, luôn sẵn sàng rủ cả box vào game."
   },
   {
@@ -28,6 +30,7 @@
    "k": "m",
    "t": "Thành viên",
    "h": 0,
+   "g": 0,
    "b": "Thành viên bí ẩn với biệt danh @CanThanSauLung. Cẩn thận phía sau lưng nhé!"
   },
   {
@@ -35,6 +38,7 @@
    "k": "m",
    "t": "Thành viên",
    "h": 30,
+   "g": 0,
    "b": "Thành viên thân thiện, do Thanh Mai mời vào box. Tên tài khoản @khang.le.708926."
   },
   {
@@ -42,6 +46,7 @@
    "k": "m",
    "t": "Thành viên",
    "h": 150,
+   "g": 0,
    "b": "Thành viên mê mèo, góp thêm nhiều tiếng cười cho box."
   },
   {
@@ -49,6 +54,7 @@
    "k": "a",
    "t": "Quản trị viên",
    "h": 180,
+   "g": 0,
    "b": "Quản trị viên của box. Tên tài khoản @nguyen.tran.265326."
   },
   {
@@ -56,6 +62,7 @@
    "k": "m",
    "t": "Thành viên",
    "h": 50,
+   "g": 0,
    "b": "Thành viên có cái tên khiến ai cũng tò mò, do Thanh Mai mời vào box."
   },
   {
@@ -63,6 +70,7 @@
    "k": "m",
    "t": "Thành viên",
    "h": 340,
+   "g": 0,
    "b": "Thành viên mới của gia đình pony, mang thêm nhiều tiếng cười cho box."
   },
   {
@@ -70,6 +78,7 @@
    "k": "m",
    "t": "Thành viên",
    "h": 120,
+   "g": 0,
    "b": "Thành viên mới của gia đình pony, góp thêm một chú pony vui vẻ cho box."
   },
   {
@@ -77,6 +86,7 @@
    "k": "m",
    "t": "Thành viên",
    "h": 210,
+   "g": 0,
    "b": "Thành viên có cái tên thật mơ màng, như giấc ngủ giữa mùa đông."
   },
   {
@@ -84,6 +94,7 @@
    "k": "m",
    "t": "Thành viên",
    "h": 320,
+   "g": 0,
    "b": "Thành viên đáng yêu, luôn mang theo nụ cười vào box."
   },
   {
@@ -91,6 +102,7 @@
    "k": "m",
    "t": "Thành viên",
    "h": 260,
+   "g": 0,
    "b": "Thành viên dịu dàng, góp thêm sắc màu cho gia đình pony."
   },
   {
@@ -98,6 +110,7 @@
    "k": "m",
    "t": "Thành viên",
    "h": 170,
+   "g": 0,
    "b": "Thành viên vui vẻ, luôn sẵn sàng rủ cả nhóm vào game."
   },
   {
@@ -105,14 +118,15 @@
    "k": "m",
    "t": "Thành viên",
    "h": 20,
+   "g": 0,
    "b": "Thành viên có biệt danh siêu ngầu, nghe tên là nhớ ngay."
   },
   {
    "n": "Nhật Hoangg",
-   "g": 1,
    "k": "m",
    "t": "Thành viên",
    "h": 90,
+   "g": 1,
    "b": "Thành viên mới của gia đình pony, hay xuất hiện lúc cả box đang vui."
   },
   {
@@ -120,6 +134,7 @@
    "k": "m",
    "t": "Thành viên",
    "h": 300,
+   "g": 0,
    "b": "Thành viên mới của gia đình pony, mang theo phong cách rất riêng."
   },
   {
@@ -127,6 +142,7 @@
    "k": "m",
    "t": "Thành viên",
    "h": 230,
+   "g": 0,
    "b": "Thành viên mới của gia đình pony, nhỏ nhắn mà nhiều năng lượng."
   },
   {
@@ -134,6 +150,7 @@
    "k": "m",
    "t": "Thành viên",
    "h": 150,
+   "g": 0,
    "b": "Thành viên có cái tên siêu độc đáo, nghe một lần là nhớ mãi."
   },
   {
@@ -141,14 +158,15 @@
    "k": "m",
    "t": "Thành viên",
    "h": 10,
+   "g": 0,
    "b": "Thành viên mới của gia đình pony, mang thêm năng lượng cho box."
   },
   {
    "n": "Khánh Ngọc Nguyễn",
-   "g": 1,
    "k": "m",
    "t": "Thành viên",
    "h": 200,
+   "g": 1,
    "b": "Thành viên thân thiện, vừa là khách vừa là người nhà của box."
   },
   {
@@ -156,6 +174,7 @@
    "k": "m",
    "t": "Thành viên",
    "h": 330,
+   "g": 0,
    "b": "Thành viên dịu dàng, góp thêm sắc màu cho gia đình pony."
   },
   {
@@ -163,6 +182,7 @@
    "k": "m",
    "t": "Thành viên",
    "h": 120,
+   "g": 0,
    "b": "Thành viên mới của gia đình pony, luôn sẵn sàng vào game cùng cả nhóm."
   },
   {
@@ -170,6 +190,7 @@
    "k": "m",
    "t": "Thành viên",
    "h": 280,
+   "g": 0,
    "b": "Thành viên vui vẻ, mang theo nhiều tiếng cười cho box."
   },
   {
@@ -177,6 +198,7 @@
    "k": "m",
    "t": "Thành viên",
    "h": 320,
+   "g": 0,
    "b": "Thành viên đáng yêu, góp thêm một chú pony xinh cho cả nhà."
   },
   {
@@ -184,6 +206,7 @@
    "k": "m",
    "t": "Thành viên",
    "h": 60,
+   "g": 0,
    "b": "Thành viên mới của gia đình pony, hay xuất hiện đúng lúc cả box đang vui."
   },
   {
@@ -191,7 +214,104 @@
    "k": "m",
    "t": "Thành viên",
    "h": 240,
+   "g": 0,
    "b": "Thành viên nhẹ nhàng, thêm một nét dịu dàng cho box."
+  },
+  {
+   "n": "Fenya Stephanie",
+   "k": "m",
+   "t": "Thành viên",
+   "h": 310,
+   "g": 0,
+   "b": "Thành viên mới của gia đình pony, mang theo phong cách rất riêng."
+  },
+  {
+   "n": "Khang Liang",
+   "k": "m",
+   "t": "Thành viên",
+   "h": 190,
+   "g": 0,
+   "b": "Thành viên mới của gia đình pony, hay xuất hiện đúng lúc cả box đang vui."
+  },
+  {
+   "n": "Luminous Here",
+   "k": "m",
+   "t": "Thành viên",
+   "h": 270,
+   "g": 0,
+   "b": "Thành viên có cái tên lung linh, nghe như một vì sao nhỏ."
+  },
+  {
+   "n": "Nghịch Bi Tài Xế",
+   "k": "m",
+   "t": "Thành viên",
+   "h": 40,
+   "g": 0,
+   "b": "Thành viên có biệt danh siêu vui, nghe tên là muốn rủ đi chơi."
+  },
+  {
+   "n": "Nguyễn Thị Thanh Tuyền",
+   "k": "m",
+   "t": "Thành viên",
+   "h": 340,
+   "g": 0,
+   "b": "Thành viên dịu dàng, góp thêm sắc màu cho gia đình pony."
+  },
+  {
+   "n": "Nh Vy",
+   "k": "m",
+   "t": "Thành viên",
+   "h": 130,
+   "g": 0,
+   "b": "Thành viên đáng yêu, luôn mang theo nụ cười vào box."
+  },
+  {
+   "n": "Phương Thảo",
+   "k": "m",
+   "t": "Thành viên",
+   "h": 100,
+   "g": 0,
+   "b": "Thành viên vui vẻ, luôn sẵn sàng rủ cả nhóm vào game."
+  },
+  {
+   "n": "thanh tr",
+   "k": "m",
+   "t": "Thành viên",
+   "h": 210,
+   "g": 0,
+   "b": "Thành viên mới của gia đình pony, nhỏ nhắn mà nhiều năng lượng."
+  },
+  {
+   "n": "thảo nguyên",
+   "k": "m",
+   "t": "Thành viên",
+   "h": 160,
+   "g": 0,
+   "b": "Thành viên có cái tên rộng như một thảo nguyên xanh."
+  },
+  {
+   "n": "thảo như",
+   "k": "m",
+   "t": "Thành viên",
+   "h": 290,
+   "g": 0,
+   "b": "Thành viên nhẹ nhàng, thêm một nét dịu dàng cho box."
+  },
+  {
+   "n": "thinn cimm",
+   "k": "m",
+   "t": "Thành viên",
+   "h": 70,
+   "g": 0,
+   "b": "Thành viên mới của gia đình pony, mang thêm nhiều tiếng cười cho box."
+  },
+  {
+   "n": "trần chiều",
+   "k": "m",
+   "t": "Thành viên",
+   "h": 250,
+   "g": 0,
+   "b": "Thành viên mới của gia đình pony, hay xuất hiện lúc cả box đang vui."
   }
  ],
  "a": [
@@ -214,5 +334,5 @@
    "d": "zà nhất box,anh của cả box"
   }
  ],
- "v": "v3"
+ "v": "v4"
 }
