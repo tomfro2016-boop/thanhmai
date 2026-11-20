@@ -225,6 +225,7 @@ footer{text-align:center;padding:26px 20px 100px;background:var(--ink);color:var
 .nvw{position:sticky;top:env(safe-area-inset-top,0px);z-index:40}.nv{position:static}
 .nvw>a.nw{display:block;text-align:center;text-decoration:none;font-weight:700;font-size:13px;padding:4px 14px;background:var(--sun);color:var(--on);border-bottom:3px solid var(--bd);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 html{scroll-padding-top:calc(104px + env(safe-area-inset-top,0px))}.pg{top:calc(98px + env(safe-area-inset-top,0px))}#toast{top:calc(112px + env(safe-area-inset-top,0px))}
+.note{position:relative}.note .nx{display:none;position:absolute;top:4px;right:4px;width:24px;height:24px;border:2px solid var(--bd);border-radius:50%;background:#fff;cursor:pointer;font-size:12px;font-weight:800;color:var(--on);padding:0}body.ok .note .nx{display:block}body.shared:not(.ok) #wx{display:none}
 </style>
 </head>
 <body>
@@ -386,9 +387,9 @@ html{scroll-padding-top:calc(104px + env(safe-area-inset-top,0px))}.pg{top:calc(
 
 <section id="wall"><div class="wrap">
   <h2 class="rv">Tường lời chúc</h2>
-  <p class="lead rv">Dán một mẩu giấy lên tường. Lời nhắn chỉ lưu trên máy của bạn.</p>
+  <p class="lead rv">Dán một mẩu giấy lên tường. Lời chúc được lưu chung, cả box đều thấy.</p>
   <div class="wf rv"><input class="sq" id="wi" maxlength="60" placeholder="Viết lời chúc cho box…" aria-label="Lời chúc" autocomplete="off"><button class="btn main" id="wa" type="button">Dán lên tường</button><button class="btn" id="wx" type="button">Xóa hết</button></div>
-  <p class="an" id="wsv" style="margin:-14px 0 18px;font-weight:700">Mọi lời chúc đều tự động lưu trên thiết bị này.</p>
+  <p class="an" id="wsv" style="margin:-14px 0 18px;font-weight:700">Lời chúc được lưu chung cho cả box.</p>
   <div class="notes" id="notes"></div>
 </div></section>
 
@@ -458,6 +459,9 @@ html{scroll-padding-top:calc(104px + env(safe-area-inset-top,0px))}.pg{top:calc(
    <div class="btns" style="margin:4px 0 0;justify-content:flex-start"><button class="btn main" id="ghv" type="button">Lưu và đồng bộ</button><button class="btn" id="ghj" type="button">Sao chép JSON</button><button class="btn" id="ghx" type="button">Tắt đồng bộ</button></div>
    <p class="an" id="ghs">Chưa bật đồng bộ.</p>
    <p class="an" id="fsts">Bảng đăng ký: chưa kiểm tra.</p>
+   <p class="an" id="kst">Kho chung: đang kiểm tra…</p>
+   <label style="margin-top:10px">Mật khẩu quản trị kho chung (ADMIN_TOKEN)<input id="pat" type="password" autocomplete="off" placeholder="Chỉ lưu trên máy này"></label>
+   <button class="btn" id="phr" type="button">Đặt lại số tim cả box</button>
    <a class="btn" href="https://docs.google.com/spreadsheets/d/1EDxu4IRmkBzSpXoJbhsT0HEeDkj-QMDGLzJE4y0LPlA/edit" target="_blank" rel="noopener" style="margin-top:8px">Mở bảng duyệt</a>
   </div>
   <p class="an">Thay đổi được tự động lưu trên thiết bị này. Bật Đồng bộ để cập nhật cho cả web.</p>
@@ -618,7 +622,7 @@ const cu=$("#cur");let cpx=0,cpy=0,ctx2=0,cty=0;
 addEventListener("pointermove",e=>{ctx2=e.clientX;cty=e.clientY});
 (function cl(){cpx+=(ctx2-cpx)*.2;cpy+=(cty-cpy)*.2;cu.style.transform=`translate(${cpx}px,${cpy}px)`;requestAnimationFrame(cl)})();
 document.addEventListener("pointerover",e=>cu.classList.toggle("h",!!e.target.closest("a,button,.card,.node,li,summary,#oimg,.stage img")));
-$("#sheet").addEventListener("click",e=>{const b=e.target.closest("#hb");if(!b)return;const hn=M[cur].n;HT[hn]=(HT[hn]||0)+1;hsv();hl();b.textContent="💖 "+HT[hn];for(let k=0;k<3;k++)burst(e.clientX,e.clientY,10);beep(880+HT[hn]*20,.1)});
+$("#sheet").addEventListener("click",e=>{const b=e.target.closest("#hb");if(!b)return;const hn=M[cur].n;heartPlus(hn);b.textContent="💖 "+(HT[hn]||0);for(let k=0;k<3;k++)burst(e.clientX,e.clientY,10);beep(880+HT[hn]*20,.1)});
 function rain(){const E=["🦄","🌈","⭐","✨","💖","🐴"];for(let i=0;i<36;i++){const s=document.createElement("span");s.textContent=E[i%6];s.style.cssText=`position:fixed;top:-40px;left:${Math.random()*100}vw;font-size:${20+Math.random()*26}px;z-index:80;pointer-events:none;animation:rn ${2.5+Math.random()*2.5}s linear ${Math.random()*1.2}s forwards`;document.body.appendChild(s);setTimeout(()=>s.remove(),7000)}toast("Mưa pony!")}
 $("#rain").addEventListener("click",rain);
 let kb="";addEventListener("keydown",e=>{kb=(kb+e.key).slice(-4).toLowerCase();if(kb=="pony")rain()});
@@ -654,12 +658,12 @@ const FC=[["Hồng kẹo","#ff6fb5"],["Vàng nắng","#ffd23f"],["Bạc hà","#3
 $("#draw").addEventListener("click",()=>{const m=M[Math.random()*M.length|0],c=FC[Math.random()*5|0],fc=$("#fc");fc.classList.remove("fp");void fc.offsetWidth;fc.classList.add("fp");fc.style.setProperty("--c",c[1]);fc.innerHTML=`<span class="em">🃏</span><h3>${m.n}</h3><p>Pony may mắn của bạn</p><p><b>Màu:</b> ${c[0]} · <b>Số:</b> ${1+Math.random()*99|0}</p><p>${FM[Math.random()*FM.length|0]}</p>`;burst(innerWidth/2,innerHeight/2,30);beep(784,.15)});
 const NS=["Chào mừng pony mới! 🦄","Nhớ đọc luật nhé ✨","Vào game rủ tụi mình nha 🌈"];let nts=NS.slice();
 try{const s=JSON.parse(localStorage.getItem("pnotes")||"null");if(Array.isArray(s))nts=s.map(String)}catch(e){}
-function nr(){const n=$("#notes");n.innerHTML=nts.map((t,i)=>`<div class="note" style="--c:${PAL[i%5]};--r:${(i*37%9)-4}deg"></div>`).join("");[...n.children].forEach((d,i)=>d.textContent=nts[i])}
+function nr(){const n=$("#notes");if(!nts.length){n.innerHTML='<p class="lead" style="margin:0">Chưa có lời chúc nào. Hãy là người đầu tiên dán lên tường nhé!</p>';return}n.innerHTML=nts.map((t,i)=>`<div class="note" style="--c:${PAL[i%5]};--r:${(i*37%9)-4}deg"><span></span><button class="nx" type="button" data-nx="${i}" aria-label="Xóa lời chúc">✕</button></div>`).join("");[...n.children].forEach((d,i)=>d.firstChild.textContent=nts[i])}
 let LW=null;try{LW=JSON.parse(localStorage.getItem("pwl")||"null")}catch(e){}
 function ns(){try{localStorage.setItem("pnotes",JSON.stringify(nts))}catch(e){}LW=nts.length?{t:nts[nts.length-1],d:Date.now()}:null;try{localStorage.setItem("pwl",JSON.stringify(LW))}catch(e){}nwc();const s=document.querySelector("#wsv");if(s)s.textContent="✓ Đã tự động lưu lúc "+new Date().toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit"})}
-$("#wa").addEventListener("click",()=>{const v=$("#wi").value.trim();if(!v)return;nts.push(v.slice(0,60));if(nts.length>24)nts.shift();$("#wi").value="";try{localStorage.removeItem("pdraft")}catch(e){}ns();nr();burst(innerWidth/2,innerHeight/2,20);beep(660,.1)});
+$("#wa").addEventListener("click",async()=>{const v=$("#wi").value.trim();if(!v)return;if(await addNote(v.slice(0,60))){$("#wi").value="";try{localStorage.removeItem("pdraft")}catch(e){}burst(innerWidth/2,innerHeight/2,20);beep(660,.1)}});
 $("#wi").addEventListener("keydown",e=>{if(e.key=="Enter")$("#wa").click()});
-$("#wx").addEventListener("click",()=>{nts=[];ns();nr()});nr();
+$("#wx").addEventListener("click",async()=>{const r=await api("/admin/notes-clear",{},true);if(r){apply(r);toast("Đã xóa sạch tường")}});nr();
 
 /* bảng điều khiển */
 function rt(){const oi=M.findIndex(m=>m.k=="o"),as=[];M.forEach((m,i)=>{if(m.k=="a")as.push(i)});const nd=(i,c,e)=>`<div class="node ${c}" data-i="${i}" tabindex="0" role="button">${e} ${M[i].n}<small>${M[i].t}${M[i].n=="Đăng Khánh"?" · bô xe cấp cao":""}</small></div>`;const rest=M.length-(oi>=0?1:0)-as.length,gs=M.filter(m=>m.g).map(m=>m.n),gk=gs.length?'<div class="link"></div><div class="node gk" id="gkn" tabindex="0" role="button">🎟️ Khách<small>'+gs.join(", ")+"</small></div>":"";$("#tree").innerHTML=(oi>=0?nd(oi,"o","👑")+'<div class="link"></div>':"")+(as.length?'<div class="lvl">'+as.map(i=>nd(i,"a","🛡️")).join("")+'</div><div class="link"></div>':"")+`<div class="node" id="allm" tabindex="0" role="button">🐴 ${rest} thành viên khác<small>Xem tất cả</small></div>`+gk}rt();
@@ -682,7 +686,7 @@ $("#ac").addEventListener("keydown",e=>{if(e.key=="Enter")$("#aok").click()});
 document.querySelectorAll(".atab").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".atab").forEach(x=>x.setAttribute("aria-pressed",x==b));$("#atm").hidden=b.dataset.t!="m";$("#ats").hidden=b.dataset.t!="s";$("#atg").hidden=b.dataset.t!="g";$("#atb").hidden=b.dataset.t!="b"}));
 $("#aadd").addEventListener("click",()=>{const n=cl2($("#anm").value.trim()).slice(0,40);if(!n)return toast("Nhập tên thành viên");const k=$("#ak").value;M.push({n,k,t:{o:"Chủ box",a:"Quản trị viên",m:"Thành viên"}[k],h:Math.random()*360|0,g:$("#agk").checked?1:0,b:cl2($("#ab").value.trim()).slice(0,160)||"Thành viên mới của gia đình pony."});$("#anm").value="";$("#ab").value="";$("#agk").checked=false;svm()});
 $("#aml").addEventListener("click",e=>{const b=e.target.closest("[data-d]");if(!b)return;if(M[+b.dataset.d].s)return toast("Thành viên này đến từ biểu mẫu: bỏ tick Duyệt trong bảng để xóa");if(b.dataset.c!="1"){b.dataset.c="1";b.textContent="Chắc chưa?";setTimeout(()=>{b.dataset.c="";b.textContent="Xóa"},2500);return}if(M.length<=1)return toast("Cần giữ lại ít nhất 1 thành viên");M.splice(+b.dataset.d,1);svm()});
-$("#arst").addEventListener("click",()=>{M.splice(0,M.length,...M0.map(m=>({...m})));for(const k in HT)delete HT[k];hsv();AW=AW0.map(a=>({...a}));svm()});
+$("#arst").addEventListener("click",()=>{M.splice(0,M.length,...M0.map(m=>({...m})));AW=AW0.map(a=>({...a}));svm()});
 function pt(i){if(!TK.length)return;ti=(i+TK.length)%TK.length;ad.src=TK[ti].src;ad.play().then(()=>{$("#mpp").textContent="⏸";$("#mpt").textContent="🎵 "+TK[ti].name}).catch(()=>{toast("Không phát được bài này");$("#mpp").textContent="▶"})}
 $("#mpp").addEventListener("click",()=>{if(ti<0)return pt(0);if(ad.paused){ad.play();$("#mpp").textContent="⏸"}else{ad.pause();$("#mpp").textContent="▶"}});
 $("#mpn").addEventListener("click",()=>pt(ti+1));ad.addEventListener("ended",()=>pt(ti+1));
@@ -764,7 +768,7 @@ P.onclick=e=>{if(e.target.id!="mhg")return;const a=M[+P.querySelector("#mh1").va
 G.name=()=>{const A=["Bánh Bao","Kẹo Bông","Mây Hồng","Sao Băng","Mochi","Trà Sữa","Bé Cà Rốt","Hạt Đậu","Gấu Bông","Cầu Vồng"],B=["Tím","Nhảy Múa","Lém Lỉnh","Mơ Mộng","Bá Khí","Siêu Tốc","Dễ Thương","Tinh Nghịch","Lười Biếng","Rực Rỡ"],E=["🦄","🌈","⭐","💖","🍰","🌸","🎀","☁️"];let cur="";
 P.innerHTML=`<div class="gbx"><div class="pnm" id="pn">…</div><p class="gh2">Tên pony ngẫu nhiên dành cho bạn</p><div class="gop"><button class="btn main" id="pg2" type="button">Tạo tên khác</button><button class="btn" id="pw3" type="button">Dán lên tường</button></div></div>`;
 const mk=()=>{cur=pk(A)+" "+pk(B);P.querySelector("#pn").textContent=pk(E)+" "+cur;beep(700,.08)};
-P.onclick=e=>{if(e.target.id=="pg2")mk();if(e.target.id=="pw3"){nts.push(("Tên pony: "+cur).slice(0,60));if(nts.length>24)nts.shift();ns();nr();toast("Đã dán lên Tường lời chúc!")}};mk()};
+P.onclick=e=>{if(e.target.id=="pg2")mk();if(e.target.id=="pw3"){addNote(("Tên pony: "+cur).slice(0,60)).then(ok=>{if(ok)toast("Đã dán lên Tường lời chúc!")})}};mk()};
 G.draw=()=>{const C=["#ff6fb5","#ffd23f","#3ddc97","#5bc0ff","#a78bfa","#17121f","#ffffff","#ff9500"];let col=C[0],dn=false;
 P.innerHTML=`<div class="gbx"><canvas id="dc" class="dcv" width="320" height="320"></canvas><div class="sw dpal">${C.map(c=>`<button type="button" style="--c:${c}" data-c="${c}" aria-label="Chọn màu"></button>`).join("")}<button type="button" class="der" data-c="" aria-label="Cục tẩy">🧽</button></div><button class="btn" id="dcl" type="button">Xóa hết</button></div>`;
 const cv=P.querySelector("#dc"),g=cv.getContext("2d"),px=e=>{const r=cv.getBoundingClientRect(),x=Math.floor((e.clientX-r.left)/r.width*16),y=Math.floor((e.clientY-r.top)/r.height*16);if(x<0||y<0||x>15||y>15)return;if(col){g.fillStyle=col;g.fillRect(x*20,y*20,20,20)}else g.clearRect(x*20,y*20,20,20)};
@@ -797,6 +801,27 @@ function ago(d){const s=(Date.now()-d)/1000;return s<45?"vừa xong":s<3600?Math
 function nwc(){const e=document.querySelector("#nwl");if(!e)return;e.textContent=LW?"💌 “"+(LW.t.length>26?LW.t.slice(0,25)+"…":LW.t)+"” · "+ago(LW.d):"💌 Tường lời chúc";e.title=LW?"Lời chúc mới nhất: "+LW.t+" ("+new Date(LW.d).toLocaleString("vi-VN")+")":"Tường lời chúc"}
 const wi0=$("#wi");try{const dr=localStorage.getItem("pdraft");if(dr)wi0.value=dr}catch(e){}wi0.addEventListener("input",()=>{try{localStorage.setItem("pdraft",wi0.value)}catch(e){}});
 hl();nwc();setInterval(nwc,30000);
+
+/* kho chung (Cloudflare Worker): tim + tường lời chúc */
+const API="https://box-api.tomfro2016.workers.dev";
+let SH={},SN=[],PD={},hT=null;
+const gtok=()=>{try{return localStorage.getItem("pat")||""}catch(e){return ""}};
+function kst(t){const e=document.querySelector("#kst");if(e)e.textContent="Kho chung: "+t}
+async function api(path,body,admin){try{const hd={"Content-Type":"application/json"};if(admin){const t=gtok();if(!t){toast("Hãy nhập mật khẩu quản trị trong ⚙️ → Đồng bộ");return null}hd["X-Admin"]=t}const r=await fetch(API+path,{method:"POST",headers:hd,body:JSON.stringify(body||{}),keepalive:true}),j=await r.json().catch(()=>null);if(!r.ok){toast(j&&j.error?j.error:"Không kết nối được kho chung");return null}return j}catch(e){toast("Không kết nối được kho chung");return null}}
+function hrb(){for(const k in HT)delete HT[k];for(const k in SH)HT[k]=SH[k];for(const k in PD)HT[k]=(HT[k]||0)+PD[k];hl()}
+function snr(){nts=SN.map(x=>x.t);const l=SN[SN.length-1];LW=l?{t:l.t,d:l.d}:null;nr();nwc()}
+function apply(j){SH=j.hearts||{};SN=Array.isArray(j.notes)?j.notes:[];hrb();snr();try{localStorage.setItem("pst2",JSON.stringify({SH,SN}))}catch(e){}}
+async function pull(){try{const r=await fetch(API+"/?t="+Date.now(),{cache:"no-store"});if(!r.ok)throw 0;apply(await r.json());kst("kết nối tốt, "+SN.length+" lời chúc.")}catch(e){kst("chưa kết nối được, đang dùng bản đã lưu.")}}
+function heartPlus(n){PD[n]=(PD[n]||0)+1;hrb();clearTimeout(hT);hT=setTimeout(flush,2000)}
+async function flush(){for(const [n,c] of Object.entries(PD)){const k=Math.min(c,20),r=await api("/heart",{name:n,n:k});if(!r){hT=setTimeout(flush,15000);return}PD[n]-=k;if(PD[n]<=0)delete PD[n];apply(r)}if(Object.keys(PD).length)hT=setTimeout(flush,2000)}
+async function addNote(t){if(!t)return false;const r=await api("/note",{text:t});if(!r)return false;apply(r);const s=document.querySelector("#wsv");if(s)s.textContent="✓ Đã gửi lên tường chung lúc "+new Date().toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit"});return true}
+try{const c=JSON.parse(localStorage.getItem("pst2")||"null");if(c){SH=c.SH||{};SN=c.SN||[]}}catch(e){}
+hrb();snr();document.body.classList.add("shared");
+$("#notes").addEventListener("click",async e=>{const b=e.target.closest("[data-nx]");if(!b)return;const r=await api("/admin/note-delete",{i:+b.dataset.nx},true);if(r){apply(r);toast("Đã xóa lời chúc")}});
+const pat=$("#pat");pat.value=gtok();pat.addEventListener("input",()=>{try{localStorage.setItem("pat",pat.value.trim())}catch(e){}});
+$("#phr").addEventListener("click",async e=>{const b=e.currentTarget;if(b.dataset.c!="1"){b.dataset.c="1";b.textContent="Bấm lại để chắc chắn";setTimeout(()=>{b.dataset.c="";b.textContent="Đặt lại số tim cả box"},3000);return}b.dataset.c="";b.textContent="Đặt lại số tim cả box";const r=await api("/admin/hearts-reset",{},true);if(r){apply(r);toast("Đã đặt lại số tim")}});
+addEventListener("pagehide",()=>{Object.entries(PD).forEach(([n,c])=>api("/heart",{name:n,n:Math.min(c,20)}))});
+pull();setInterval(pull,30000);addEventListener("focus",pull);
 </script>
 </body>
 </html>
