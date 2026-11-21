@@ -226,6 +226,17 @@ footer{text-align:center;padding:26px 20px 100px;background:var(--ink);color:var
 .nvw>a.nw{display:block;text-align:center;text-decoration:none;font-weight:700;font-size:13px;padding:4px 14px;background:var(--sun);color:var(--on);border-bottom:3px solid var(--bd);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 html{scroll-padding-top:calc(104px + env(safe-area-inset-top,0px))}.pg{top:calc(98px + env(safe-area-inset-top,0px))}#toast{top:calc(112px + env(safe-area-inset-top,0px))}
 .note{position:relative}.note .nx{display:none;position:absolute;top:4px;right:4px;width:24px;height:24px;border:2px solid var(--bd);border-radius:50%;background:#fff;cursor:pointer;font-size:12px;font-weight:800;color:var(--on);padding:0}body.ok .note .nx{display:block}body.shared:not(.ok) #wx{display:none}
+#chat{background:color-mix(in srgb,var(--sky) 30%,var(--bg));border-block:3px solid var(--bd)}
+.chb{background:var(--card);border:3px solid var(--bd);border-radius:28px;box-shadow:8px 8px 0 var(--sh);padding:18px}
+.chl{height:340px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding:6px;margin-bottom:14px}
+.cm{max-width:82%;align-self:flex-start;background:var(--bg2);border:3px solid var(--bd);border-radius:16px 16px 16px 4px;padding:8px 14px;overflow-wrap:anywhere}
+.cm.me{align-self:flex-end;background:var(--mint);color:var(--on);border-radius:16px 16px 4px 16px}
+.cm b{display:block;font:800 13px "Baloo 2",sans-serif}.cm small{opacity:.6;font-size:11px;margin-left:6px}
+.xg{display:grid;grid-template-columns:repeat(var(--n,3),var(--s,76px));gap:10px;justify-content:center;margin:14px 0}
+.xc{width:var(--s,76px);height:var(--s,76px);font-size:36px;border:3px solid var(--bd);border-radius:14px;background:var(--card);color:var(--ink);cursor:pointer;box-shadow:3px 3px 0 var(--sh)}
+.rx{width:100%;max-width:360px;height:180px;font:800 22px "Baloo 2",sans-serif;border:3px solid var(--bd);border-radius:24px;box-shadow:6px 6px 0 var(--sh);background:var(--sky);color:var(--on);cursor:pointer;margin:12px 0}
+.vl{display:grid;grid-template-columns:repeat(10,1fr);max-width:420px;margin:12px auto;border:3px solid var(--bd);border-radius:18px;overflow:hidden;background:#b8f0b0}
+.vl i{font-style:normal;aspect-ratio:1;display:grid;place-items:center;font-size:clamp(16px,5vw,28px);cursor:pointer}
 </style>
 </head>
 <body>
@@ -234,7 +245,7 @@ html{scroll-padding-top:calc(104px + env(safe-area-inset-top,0px))}.pg{top:calc(
 <div id="toast" role="status"></div>
 <div id="pre"><span style="font-size:60px;animation:fl .7s ease-in-out infinite">🦄</span><b>Đang gọi pony</b><div><i id="pi"></i></div></div><div id="cur" aria-hidden="true"></div>
 <div class="fab"><button id="snd" type="button" aria-label="Bật tắt âm thanh">🔇</button><button id="theme" type="button" aria-label="Đổi giao diện sáng tối">🌗</button><button id="tune" type="button" aria-label="Đổi bản nhạc nền">🎶</button><button id="rain" type="button" aria-label="Mưa pony">🦄</button><button id="gear" type="button" aria-label="Bảng điều khiển">⚙️</button></div>
-<div class="nvw"><nav class="nv" aria-label="Điều hướng"><a class="brand" href="#top">✦ BOX</a><a href="#about">Giới thiệu</a><a href="#owner">Chủ box</a><a href="#uniform">Đồng phục</a><a href="#members">Thành viên</a><a href="#best">Cái nhất</a><a href="#rules">Luật</a><a href="#play">Khu vui chơi</a><a href="#maker">Tạo pony</a><a href="#game">Chơi</a><a href="#wheel">Vòng quay</a><a href="#fortune">Bói</a><a href="#wall">Tường</a><a href="#quiz">Trắc nghiệm</a><a class="go" href="#join">Vào box</a></nav><a class="nw" id="nwl" href="#wall">💌 Tường lời chúc</a></div>
+<div class="nvw"><nav class="nv" aria-label="Điều hướng"><a class="brand" href="#top">✦ BOX</a><a href="#about">Giới thiệu</a><a href="#owner">Chủ box</a><a href="#uniform">Đồng phục</a><a href="#members">Thành viên</a><a href="#best">Cái nhất</a><a href="#rules">Luật</a><a href="#play">Khu vui chơi</a><a href="#maker">Tạo pony</a><a href="#game">Chơi</a><a href="#wheel">Vòng quay</a><a href="#fortune">Bói</a><a href="#wall">Tường</a><a href="#chat">Trò chuyện</a><a href="#quiz">Trắc nghiệm</a><a class="go" href="#join">Vào box</a></nav><a class="nw" id="nwl" href="#wall">💌 Tường lời chúc</a></div>
 
 <header class="hero" id="top">
   <span class="fs" style="top:6%;left:5%;--r:-14deg">🌈</span><span class="fs" style="top:12%;right:7%;--r:12deg;animation-delay:-1s">⭐</span><span class="fs" style="top:50%;left:3%;--r:10deg;animation-delay:-2s">💖</span><span class="fs" style="top:58%;right:4%;--r:-8deg;animation-delay:-3s">🦄</span><span class="fs" style="top:32%;left:13%;--r:6deg;animation-delay:-1.5s;font-size:30px">✨</span>
@@ -347,7 +358,7 @@ html{scroll-padding-top:calc(104px + env(safe-area-inset-top,0px))}.pg{top:calc(
 
 <section id="play"><div class="wrap">
   <h2 class="rv">Khu vui chơi</h2>
-  <p class="lead rv">Nhiều trò nhỏ để làm quen và nghịch cùng cả box: đoán người, lật thẻ, đập pony, thật hay thách, đo độ hợp nhau, vẽ pixel… Chọn một trò bên dưới nhé.</p>
+  <p class="lead rv">Nhiều trò nhỏ để làm quen và nghịch cùng cả box: đoán người, lật thẻ, đập pony, thật hay thách, đo độ hợp nhau, vẽ pixel, rắn săn mồi, cờ caro, kéo búa bao, nhớ màu, thử phản xạ, dạo quanh làng pony… Chọn một trò bên dưới nhé.</p>
   <div class="gtabs rv" id="gtb"></div>
   <div class="rv" id="gpn"></div>
 </div></section>
@@ -391,6 +402,14 @@ html{scroll-padding-top:calc(104px + env(safe-area-inset-top,0px))}.pg{top:calc(
   <div class="wf rv"><input class="sq" id="wi" maxlength="60" placeholder="Viết lời chúc cho box…" aria-label="Lời chúc" autocomplete="off"><button class="btn main" id="wa" type="button">Dán lên tường</button><button class="btn" id="wx" type="button">Xóa hết</button></div>
   <p class="an" id="wsv" style="margin:-14px 0 18px;font-weight:700">Lời chúc được lưu chung cho cả box.</p>
   <div class="notes" id="notes"></div>
+</div></section>
+
+<section id="chat"><div class="wrap">
+  <h2 class="rv">Trò chuyện</h2>
+  <p class="lead rv">Phòng chat chung của cả box: tin nhắn được lưu lại, ai vào web cũng đọc được.</p>
+  <div class="chb rv"><div class="chl" id="chl" aria-live="polite"></div>
+  <div class="wf"><input class="sq" id="chn" maxlength="16" placeholder="Tên của bạn" aria-label="Tên" style="flex:0 1 160px"><input class="sq" id="chi" maxlength="200" placeholder="Nhắn gì đó cho cả box…" aria-label="Tin nhắn" autocomplete="off"><button class="btn main" id="chs" type="button">Gửi</button></div>
+  <p class="an" id="chst" style="margin:0;font-weight:700"></p></div>
 </div></section>
 
 <section id="quiz"><div class="wrap">
@@ -774,7 +793,39 @@ P.innerHTML=`<div class="gbx"><canvas id="dc" class="dcv" width="320" height="32
 const cv=P.querySelector("#dc"),g=cv.getContext("2d"),px=e=>{const r=cv.getBoundingClientRect(),x=Math.floor((e.clientX-r.left)/r.width*16),y=Math.floor((e.clientY-r.top)/r.height*16);if(x<0||y<0||x>15||y>15)return;if(col){g.fillStyle=col;g.fillRect(x*20,y*20,20,20)}else g.clearRect(x*20,y*20,20,20)};
 cv.addEventListener("pointerdown",e=>{dn=true;px(e)});cv.addEventListener("pointermove",e=>{if(dn)px(e)});addEventListener("pointerup",()=>dn=false);
 P.onclick=e=>{const b=e.target.closest("[data-c]");if(b)col=b.dataset.c;if(e.target.id=="dcl")g.clearRect(0,0,320,320)}};
-const GL={who:"🕵️ Đoán ai",mem:"🃏 Lật thẻ",whack:"🔨 Đập pony",rule:"📜 Đúng hay sai",tod:"🎲 Thật hay thách",match:"💞 Độ hợp nhau",name:"✨ Tên pony",draw:"🎨 Vẽ pixel"};
+G.snake=()=>{const N=16,S=20;let sn=[[8,8]],d=[1,0],nd=d,f=[3,3],sc=0,run=false;const best=+ls("pbs")||0;
+P.innerHTML=`<div class="gbx"><p class="qh">🐍 <b id="sn">0</b> · Kỷ lục ${best}</p><canvas id="sc" class="dcv" width="320" height="320"></canvas><div class="gop" style="max-width:220px;grid-template-columns:repeat(3,1fr)"><span></span><button class="btn" data-d="0,-1" type="button">⬆️</button><span></span><button class="btn" data-d="-1,0" type="button">⬅️</button><button class="btn" data-d="0,1" type="button">⬇️</button><button class="btn" data-d="1,0" type="button">➡️</button></div><button class="btn main" id="ss" type="button">Bắt đầu</button></div>`;
+const cv=P.querySelector("#sc"),g=cv.getContext("2d"),dr=()=>{g.fillStyle="#fff4d6";g.fillRect(0,0,320,320);g.font="18px serif";g.fillText("🍎",f[0]*S,f[1]*S+17);sn.forEach(([x,y],i)=>{g.fillStyle=i?"#3ddc97":"#ff6fb5";g.fillRect(x*S+1,y*S+1,S-2,S-2)})};
+const st=()=>{d=nd;const h=[sn[0][0]+d[0],sn[0][1]+d[1]];if(h[0]<0||h[1]<0||h[0]>=N||h[1]>=N||sn.some(q=>q[0]==h[0]&&q[1]==h[1])){gstop();run=false;if(sc>best)ss("pbs",sc);toast("Game over: "+sc+" điểm");beep(150,.3);return}sn.unshift(h);if(h[0]==f[0]&&h[1]==f[1]){sc++;beep(800,.05);P.querySelector("#sn").textContent=sc;f=[Math.random()*N|0,Math.random()*N|0]}else sn.pop();dr()};
+const sd=v=>{if(v[0]+d[0]||v[1]+d[1])nd=v},kd=e=>{if(!cv.isConnected)return removeEventListener("keydown",kd);const k={ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0]}[e.key];if(k&&run){e.preventDefault();sd(k)}};addEventListener("keydown",kd);dr();
+P.onclick=e=>{const b=e.target.closest("[data-d]");if(b)sd(b.dataset.d.split(",").map(Number));if(e.target.id=="ss"&&!run){gstop();sn=[[8,8]];d=nd=[1,0];sc=0;run=true;gtmr(st,140);dr()}}};
+G.xo=()=>{let b=Array(9).fill(""),end=false;const L=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]],wn=p=>L.some(l=>l.every(i=>b[i]==p)),full=()=>b.every(v=>v);
+const rd=m=>{P.innerHTML=`<div class="gbx"><p class="qh">${m}</p><div class="xg">${b.map((v,i)=>`<button class="xc" data-x="${i}" type="button">${v||"&nbsp;"}</button>`).join("")}</div><button class="btn" id="xr" type="button">Ván mới</button></div>`};
+const fd=p=>{for(const l of L)if(l.filter(i=>b[i]==p).length==2){const z=l.find(i=>!b[i]);if(z!=null)return z}return null},bot=()=>{let m=fd("🐱");if(m==null)m=fd("🦄");if(m==null)m=b[4]?pk(b.map((v,i)=>v?-1:i).filter(i=>i>=0)):4;b[m]="🐱"};
+rd("Bạn là 🦄, đi trước nào!");
+P.onclick=e=>{if(e.target.id=="xr"){b=Array(9).fill("");end=false;return rd("Ván mới, đi nào!")}const c=e.target.closest("[data-x]");if(!c||end||b[+c.dataset.x])return;b[+c.dataset.x]="🦄";beep(600,.06);if(wn("🦄")){end=true;mid();return rd("Bạn thắng! 🎉")}if(full())return rd("Hòa nhau 🤝");bot();if(wn("🐱")){end=true;return rd("Mèo thắng rồi 😿")}rd(full()?"Hòa nhau 🤝":"Tới lượt bạn")}};
+G.rps=()=>{const O=["✊","✋","✌️"];let w=0,l=0;
+P.innerHTML=`<div class="gbx"><p class="qh">Thắng <b id="rw">0</b> · Thua <b id="rl">0</b></p><div class="pnm" id="rr">❔ vs ❔</div><div class="gop">${O.map((o,i)=>`<button class="btn" data-r="${i}" type="button">${o}</button>`).join("")}</div></div>`;
+P.onclick=e=>{const b=e.target.closest("[data-r]");if(!b)return;const a=+b.dataset.r,c=Math.random()*3|0,r=(a-c+3)%3;if(r==1)w++;if(r==2)l++;P.querySelector("#rw").textContent=w;P.querySelector("#rl").textContent=l;P.querySelector("#rr").textContent=O[a]+" vs "+O[c]+(r==1?" · Thắng! 🎉":r?" · Thua 😝":" · Hòa");beep(r==1?900:300,.08)}};
+G.simon=()=>{const C=["#ff6fb5","#ffd23f","#3ddc97","#5bc0ff"];let sq=[],i=0,ok=false;const best=+ls("pbi")||0;
+P.innerHTML=`<div class="gbx"><p class="qh">Vòng <b id="sv">0</b> · Kỷ lục ${best}</p><div class="xg" style="--n:2;--s:96px">${C.map((c,k)=>`<button class="xc" style="background:${c}" data-k="${k}" type="button" aria-label="Màu ${k+1}"></button>`).join("")}</div><button class="btn main" id="sg" type="button">Bắt đầu</button></div>`;
+const bs=[...P.querySelectorAll(".xc")],fl=k=>{bs[k].style.opacity=.3;beep(400+k*150,.2);gtmr(()=>bs[k].style.opacity=1,300,"t")},pl=()=>{ok=false;i=0;sq.push(Math.random()*4|0);P.querySelector("#sv").textContent=sq.length;sq.forEach((k,j)=>gtmr(()=>fl(k),700+j*600,"t"));gtmr(()=>ok=true,700+sq.length*600,"t")};
+P.onclick=e=>{if(e.target.id=="sg"){gstop();sq=[];return pl()}const b=e.target.closest("[data-k]");if(!b||!ok)return;const k=+b.dataset.k;fl(k);if(k!=sq[i]){ok=false;const s=sq.length-1;if(s>best)ss("pbi",s);toast("Sai rồi! Bạn qua "+s+" vòng");return}if(++i==sq.length){ok=false;gtmr(pl,700,"t")}}};
+G.fast=()=>{let t0=0,st=0;const best=+ls("pbr")||0;
+P.innerHTML=`<div class="gbx"><p class="qh">Kỷ lục: <b>${best?best+" ms":"–"}</b></p><button class="rx" id="rx" type="button">Bấm để bắt đầu</button></div>`;
+const x=P.querySelector("#rx");x.onclick=()=>{if(st==0){st=1;x.textContent="Chờ màu xanh…";x.style.background="#ff6fb5";gtmr(()=>{st=2;t0=performance.now();x.textContent="BẤM NGAY!";x.style.background="#3ddc97"},1200+Math.random()*2500,"t")}else if(st==1){gstop();st=0;x.textContent="Sớm quá! Bấm để thử lại";x.style.background="#ffd23f"}else{const ms=Math.round(performance.now()-t0);st=0;x.style.background="#5bc0ff";x.textContent=ms+" ms · bấm để chơi lại";if(!best||ms<best){ss("pbr",ms);toast("Kỷ lục mới: "+ms+" ms!")}beep(800,.08)}}};
+G.guess=()=>{const n=1+Math.random()*100|0;let c=0;
+P.innerHTML=`<div class="gbx"><p class="gh2">Mình nghĩ một số từ 1 đến 100. Đoán xem!</p><div class="pnm" id="gm">❔</div><input class="sq" id="gi" type="number" min="1" max="100" placeholder="Nhập số…" style="margin:12px auto"><div class="gop"><button class="btn main" id="gb" type="button">Đoán</button><button class="btn" id="gr" type="button">Số mới</button></div></div>`;
+P.onclick=e=>{if(e.target.id=="gr")return G.guess();if(e.target.id!="gb")return;const v=+P.querySelector("#gi").value;if(!v)return;c++;const m=P.querySelector("#gm");if(v==n){m.textContent="🎉 "+n+" · "+c+" lần";mid();beep(900,.1)}else m.textContent=v<n?"⬆️ Lớn hơn "+v:"⬇️ Nhỏ hơn "+v}};
+G.town=()=>{const W=10,H=7,Pl={"2,1":["🏠","Nhà của bạn: ấm áp, có bánh quy! 🍪"],"7,1":["🏰","Lâu đài Pony: nơi tổ chức mọi buổi họp box."],"1,4":["⛲","Đài phun nước: ném đồng xu ước một điều!"],"5,3":["🎡","Vòng đu quay: ngắm cả làng từ trên cao."],"8,5":["🏖️","Bãi biển: nghe sóng, nhặt vỏ sò."],"3,6":["🌳","Khu rừng bí ẩn: có ai đó đang trốn…"],"6,5":["🍰","Tiệm bánh: bánh bao dâu mới ra lò!"]};let x=0,y=0;const seen=new Set(),dec=(i,j)=>["🌼","🌷","🌿","🍄","·"][(i*7+j*3)%5];
+const rd=m=>{P.innerHTML=`<div class="gbx"><p class="qh">🗺️ Đã thăm <b>${seen.size}</b>/7 · ${m}</p><div class="vl">${Array.from({length:W*H},(_,k)=>{const i=k%W,j=k/W|0,q=Pl[i+","+j];return `<i data-p="${i},${j}">${i==x&&j==y?"🦄":q?q[0]:dec(i,j)}</i>`}).join("")}</div><div class="gop" style="grid-template-columns:repeat(4,1fr);max-width:320px">${[["⬅️","-1,0"],["⬆️","0,-1"],["⬇️","0,1"],["➡️","1,0"]].map(([a,d])=>`<button class="btn" data-m="${d}" type="button">${a}</button>`).join("")}</div></div>`};
+const go=(a,b)=>{x=Math.max(0,Math.min(W-1,a));y=Math.max(0,Math.min(H-1,b));const q=Pl[x+","+y];beep(500,.04);if(q){seen.add(x+","+y);rd(q[1]);if(seen.size==7){mid();toast("Bạn đã thăm hết cả làng! 🏆")}}else rd("Đang dạo chơi…")};
+rd("Chạm vào ô để đi, hoặc dùng mũi tên.");
+P.onclick=e=>{const p=e.target.closest("[data-p]"),m=e.target.closest("[data-m]");if(p){const[a,b]=p.dataset.p.split(",").map(Number);go(a,b)}if(m){const[a,b]=m.dataset.m.split(",").map(Number);go(x+a,y+b)}}};
+G.ball=()=>{const A=["Chắc chắn rồi! ✨","Có đó 🌈","Hỏi lại sau nhé ☁️","Đừng nên 🙅","Khả năng cao 💖","Không đâu 😿","Cứ thử xem 🦄","Chưa chắc nha 🤔"];
+P.innerHTML=`<div class="gbx"><p class="gh2">Nghĩ một câu hỏi Có/Không rồi lắc quả cầu.</p><div class="pnm" id="bb">🔮</div><button class="btn main" id="bs" type="button">Lắc quả cầu</button></div>`;
+P.onclick=e=>{if(e.target.id=="bs"){P.querySelector("#bb").textContent="🔮 "+pk(A);beep(300,.12)}}};
+const GL={who:"🕵️ Đoán ai",mem:"🃏 Lật thẻ",whack:"🔨 Đập pony",rule:"📜 Đúng hay sai",tod:"🎲 Thật hay thách",match:"💞 Độ hợp nhau",name:"✨ Tên pony",draw:"🎨 Vẽ pixel",snake:"🐍 Rắn săn mồi",xo:"❌ Cờ caro",rps:"✊ Kéo búa bao",simon:"🌈 Nhớ màu",fast:"⚡ Thử phản xạ",guess:"🔢 Đoán số",town:"🗺️ Dạo quanh làng",ball:"🔮 Quả cầu thần"};
 $("#gtb").innerHTML=Object.entries(GL).map(([k,v],i)=>`<button class="gtab" data-g="${k}" type="button" aria-selected="${i==0}">${v}</button>`).join("");
 const gsh=k=>{gstop();P.onclick=null;document.querySelectorAll(".gtab").forEach(b=>b.setAttribute("aria-selected",b.dataset.g==k));P.innerHTML="";G[k]()};
 $("#gtb").addEventListener("click",e=>{const b=e.target.closest(".gtab");if(b)gsh(b.dataset.g)});
@@ -822,6 +873,16 @@ const pat=$("#pat");pat.value=gtok();pat.addEventListener("input",()=>{try{local
 $("#phr").addEventListener("click",async e=>{const b=e.currentTarget;if(b.dataset.c!="1"){b.dataset.c="1";b.textContent="Bấm lại để chắc chắn";setTimeout(()=>{b.dataset.c="";b.textContent="Đặt lại số tim cả box"},3000);return}b.dataset.c="";b.textContent="Đặt lại số tim cả box";const r=await api("/admin/hearts-reset",{},true);if(r){apply(r);toast("Đã đặt lại số tim")}});
 addEventListener("pagehide",()=>{Object.entries(PD).forEach(([n,c])=>api("/heart",{name:n,n:Math.min(c,20)}))});
 pull();setInterval(pull,30000);addEventListener("focus",pull);
+
+/* trò chuyện chung (Worker: GET/POST /chat) */
+let CHM=[];try{CHM=JSON.parse(localStorage.getItem("pchat")||"[]")}catch(e){}
+const chn=$("#chn"),chi=$("#chi"),chl=$("#chl"),hxe=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+try{chn.value=localStorage.getItem("pcn")||""}catch(e){}
+function chr(){const me=chn.value.trim(),b=chl.scrollTop+chl.clientHeight>=chl.scrollHeight-40;chl.innerHTML=CHM.length?CHM.map(m=>`<div class="cm${m.n==me?" me":""}"><b>${hxe(m.n)}</b>${hxe(m.t)}<small>${ago(m.d)}</small></div>`).join(""):'<p class="lead" style="margin:auto">Chưa có tin nhắn. Hãy chào cả box nhé! 👋</p>';if(b)chl.scrollTop=chl.scrollHeight}
+async function chp(){const e=$("#chst");try{const r=await fetch(API+"/chat?t="+Date.now(),{cache:"no-store"});if(!r.ok)throw 0;const j=await r.json();CHM=(j.chat||[]).slice(-60);try{localStorage.setItem("pchat",JSON.stringify(CHM))}catch(x){}e.textContent="Đã kết nối phòng chat chung.";chr()}catch(x){e.textContent="Chưa kết nối được phòng chat chung, đang hiện bản đã lưu."}}
+async function chs(){const n=chn.value.trim().slice(0,16),t=chi.value.trim().slice(0,200);if(!n||!t){toast("Nhập tên và tin nhắn nhé");return}try{localStorage.setItem("pcn",n)}catch(e){}chi.value="";CHM.push({n,t,d:Date.now()});chr();chl.scrollTop=chl.scrollHeight;const r=await api("/chat",{name:n,text:t});if(r&&r.chat){CHM=r.chat.slice(-60);chr()}}
+$("#chs").addEventListener("click",chs);chi.addEventListener("keydown",e=>{if(e.key=="Enter")chs()});
+chr();chp();setInterval(chp,8000);addEventListener("focus",chp);
 </script>
 </body>
 </html>
