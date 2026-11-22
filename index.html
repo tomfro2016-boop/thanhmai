@@ -884,5 +884,31 @@ async function chs(){const n=chn.value.trim().slice(0,16),t=chi.value.trim().sli
 $("#chs").addEventListener("click",chs);chi.addEventListener("keydown",e=>{if(e.key=="Enter")chs()});
 chr();chp();setInterval(chp,8000);addEventListener("focus",chp);
 </script>
+
+<!-- ===== Baochat: nút mở trợ lý AI (đổi BAOCHAT_URL thành địa chỉ Baochat của bạn) ===== -->
+<style>
+#bcw{position:fixed;left:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:65;display:inline-flex;align-items:center;gap:10px;padding:10px 18px 10px 12px;font:800 16px/1 "Baloo 2","Be Vietnam Pro",system-ui,sans-serif;color:var(--on);background:var(--sun);border:3px solid var(--bd);border-radius:999px;box-shadow:4px 4px 0 var(--sh);cursor:pointer;text-decoration:none;transition:translate .15s,box-shadow .15s}
+#bcw:hover{translate:-2px -2px;box-shadow:6px 6px 0 var(--sh)}
+#bcw:active{translate:3px 3px;box-shadow:0 0 0 var(--sh)}
+#bcw i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--lil);border:3px solid var(--bd);font-style:normal;font-size:15px;line-height:1}
+@media (max-width:520px){#bcw span{display:none}#bcw{padding:10px}}
+</style>
+<a id="bcw" href="#" aria-label="Mở trò chuyện với Baochat AI" title="Hỏi Baochat AI"><i aria-hidden="true">✦</i><span>Hỏi AI</span></a>
+<script>
+(function(){
+  /* ĐỔI DÒNG NÀY: địa chỉ Baochat sau khi đưa lên Internet (vd: https://baochat-ruby.vercel.app) */
+  var BAOCHAT_URL="https://baochat-ruby.vercel.app";
+  var b=document.getElementById("bcw");
+  b.href=BAOCHAT_URL;b.target="_blank";b.rel="noopener";
+  b.addEventListener("click",function(e){
+    if(innerWidth<700)return; /* điện thoại: mở tab mới */
+    e.preventDefault();
+    var w=Math.min(480,screen.availWidth-40),h=Math.min(780,screen.availHeight-60);
+    var p=window.open(BAOCHAT_URL,"baochat","popup=yes,width="+w+",height="+h+",left="+Math.max(0,screen.availWidth-w-30)+",top=30");
+    if(!p)location.href=BAOCHAT_URL; /* bị chặn popup: mở trực tiếp */
+    else p.focus();
+  });
+})();
+</script>
 </body>
 </html>
